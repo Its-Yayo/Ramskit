@@ -73,12 +73,14 @@ if __name__ == '__main__':
         for root, _, files in os.walk(path):
             for f in files:
                 items.append(os.path.join(root, f))
+        
         ramskit.encrypt_file(items)
     elif action == 'decrypt':
         items = []
         for root, _, files in os.walk(path):
             for f in files:
                 items.append(os.path.join(root, f))
+        
         ramskit.decrypt_file(items)
     elif action == 'generate_key':
         print(ramskit.generate_key())
