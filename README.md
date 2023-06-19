@@ -28,6 +28,6 @@ You can load in your localhost the last changes of Ramskit
 $ git pull
 ```
 
-This tool is just for educational and testing purposes. I'm not responsible of the damage a cracker would exponentially create. This project is under the [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) licence.  
+This tool is just for educational and testing purposes. I'm not responsible of the damage a cracker would exponentially create. This project is under the [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) license.  
 
 Happy coding folks. 
