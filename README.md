@@ -23,7 +23,7 @@ $ git clone https://github.com/Its-Yayo/Ramskit.git
 $ cd Keypwn
 ```
 
-You can load in your localhost the last changes of Ramskit
+You can load in your localhost the last changes of Ramskit.
 ```
 $ git pull
 ```
