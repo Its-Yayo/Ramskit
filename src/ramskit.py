@@ -25,12 +25,6 @@ class Ramskit:
     def __init__(self, key):
         self.key = key
 
-    def generate_key(self):
-        self.key = Fernet.generate_key()
-        with open('key.txt', 'wb') as f:
-            f.write(self.key)
-        return self.key
-
     def encrypt_file(self, items):
         f = Fernet(self.key)
         for item in items:
@@ -54,6 +48,12 @@ class Ramskit:
 
             with open(item, 'wb') as file:
                 file.write(decrypted)
+
+def generate_key():
+    key = Fernet.generate_key()
+    with open('key.txt', 'wb') as file:
+        file.write(key)
+    return key
 
 def load_key():
     return open('key.txt', 'rb').read()
