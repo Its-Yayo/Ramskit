@@ -20,7 +20,6 @@ import sys
 import argparse
 from cryptography.fernet import Fernet
 
-
 class Ramskit:
     def __init__(self):
         print("[x] Starting Ramskit")
