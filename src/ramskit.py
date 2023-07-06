@@ -20,9 +20,11 @@ import sys
 import argparse
 from cryptography.fernet import Fernet
 
+current_version = "v0.0.1"
+
 class Ramskit:
     def __init__(self):
-        print("[x] Starting Ramskit")
+        print("f[x] Starting Ramskit {current_version}")
         print("[x] Reading key...")
         self.key = Ramskit.load_key()
 
