@@ -24,7 +24,7 @@ current_version = "v0.0.1"
 
 class Ramskit:
     def __init__(self):
-        print("f[x] Starting Ramskit {current_version}")
+        print(f"[x] Starting Ramskit {current_version}")
         print("[x] Reading key...")
         self.key = Ramskit.load_key()
 
