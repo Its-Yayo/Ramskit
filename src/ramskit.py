@@ -20,7 +20,7 @@ import sys
 import argparse
 from cryptography.fernet import Fernet
 
-current_version = "v0.0.1"
+current_version = "v1.0.0"
 
 class Ramskit:
     def __init__(self):
