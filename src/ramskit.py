@@ -29,14 +29,14 @@ class Ramskit:
         print("[x] Reading key...")
         self.key = Ramskit.load_key()
 
-        if (key := Ramskit.load_key()) is None:
+        if self.key is None:
             print("[x] Key does not exist.\n[x]Creating key...")
             self.key = Ramskit.generate_key()
         else:
             self.key = key
         print(f"[x] Key is {self.key}")
 
-    def encrypt_file(self, items, key):
+    def encrypt_file(self, items):
         f = Fernet(self.key)
         for item in items:
             with open(item, 'rb') as file:
@@ -48,7 +48,7 @@ class Ramskit:
             with open(item, 'wb') as file:
                 file.write(encrypted)
 
-    def decrypt_file(self, items, key):
+    def decrypt_file(self, items):
         f = Fernet(self.key)
         for item in items:
             with open(item, 'rb') as file:
@@ -100,8 +100,6 @@ if __name__ == '__main__':
     path = args.path
 
     ramskit = Ramskit()
-
-    ramskit.generate_key()
     key = ramskit.load_key()
 
     items: [str] = list(Ramskit.flatten(Ramskit.expand_dir(path)))
