@@ -32,8 +32,6 @@ class Ramskit:
         if self.key is None:
             print("[x] Key does not exist.\n[x]Creating key...")
             self.key = Ramskit.generate_key()
-        else:
-            self.key = key
         print(f"[x] Key is {self.key}")
 
     def encrypt_file(self, items):
