@@ -24,7 +24,7 @@ from cryptography.fernet import Fernet
 current_version = "v1.0.0"
 
 class Ramskit:
-    def __init__(self):
+    def __init__(self) -> None:
         print(f"[x] Starting Ramskit {current_version}")
         print("[x] Reading key...")
         self.key = Ramskit.load_key()
@@ -34,7 +34,7 @@ class Ramskit:
             self.key = Ramskit.generate_key()
         print(f"[x] Key is {self.key}")
 
-    def encrypt_file(self, items, key):
+    def encrypt_file(self, items, key) -> None:
         f = Fernet(key)
         for item in items:
             with open(item, 'rb') as file:
@@ -46,7 +46,7 @@ class Ramskit:
             with open(item, 'wb') as file:
                 file.write(encrypted)
 
-    def decrypt_file(self, items, key):
+    def decrypt_file(self, items, key) -> None:
         f = Fernet(key)
         for item in items:
             with open(item, 'rb') as file:
@@ -59,14 +59,14 @@ class Ramskit:
                 file.write(decrypted)
 
     @staticmethod
-    def generate_key():
+    def generate_key() -> bytes:
         key = Fernet.generate_key()
         with open('key.key', 'wb') as file:
             file.write(key)
         return key
 
     @staticmethod
-    def load_key():
+    def load_key() -> bytes:
         with open('key.key', 'rb') as file:
             return file.read()
         return None
@@ -79,7 +79,7 @@ class Ramskit:
             return [path]
 
     @staticmethod
-    def flatten(something):
+    def flatten(something) -> [str]:
         if isinstance(something, (list, tuple, set, range)):
             for sub in something:
                 yield from Ramskit.flatten(sub)
