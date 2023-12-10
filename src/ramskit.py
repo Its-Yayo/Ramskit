@@ -22,6 +22,7 @@ from cryptography.fernet import Fernet
 
 current_version = "v1.0.0"
 
+# FIXME 1: Add usages for encrypt
 class Ramskit:
     def __init__(self) -> None:
         print(f"[x] Starting Ramskit {current_version}")
