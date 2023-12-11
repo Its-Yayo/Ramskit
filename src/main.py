@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 
-#!/usr/bin/python3
-
 """ Copyright (C) 2023 Luis De León
 
 This program is free software: you can redistribute it and/or modify
