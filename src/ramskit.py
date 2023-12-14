@@ -18,6 +18,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. """
 
 from cryptography.fernet import Fernet
 
+current_version = "v1.0.0"
+
 
 # TODO 2: Add usages for encrypt
 class Ramskit:

