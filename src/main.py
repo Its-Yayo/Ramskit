@@ -38,6 +38,7 @@ if __name__ == '__main__':
 
     # FIXME 2: Encrypt/decrypt
     if action == 'encrypt':
+        # It needs changes here
         with open(lam, 'w') as f:
             f.write('''
                 Heyo, this file has been encrypted!. \n\n
