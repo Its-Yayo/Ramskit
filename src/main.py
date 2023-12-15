@@ -45,6 +45,7 @@ if __name__ == '__main__':
             ''')
         ramskit.encrypt_file(items, key)
     elif action == 'decrypt':
+        # And here
         if not os.path.exists(lam):
             print('No look_at_me.txt file found. Exiting...')
             sys.exit(1)
