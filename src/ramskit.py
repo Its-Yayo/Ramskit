@@ -64,13 +64,15 @@ class Ramskit:
         with open('key.key', 'wb') as file:
             file.write(key)
         return key
-
+        
+    
     @staticmethod
     def load_key() -> bytes:
         with open('key.key', 'rb') as file:
             return file.read()
         return None
 
+    """
     # From here these functions will be gone in order to encrypt/decrypt a single file
     @staticmethod
     def expand_dir(path: str) -> [str]:
@@ -85,5 +87,5 @@ class Ramskit:
             for sub in something:
                 yield from Ramskit.flatten(sub)
         else:
-            yield something
+            yield something """
 
