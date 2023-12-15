@@ -71,6 +71,7 @@ class Ramskit:
             return file.read()
         return None
 
+    # From here these functions will be gone in order to encrypt/decrypt a single file
     @staticmethod
     def expand_dir(path: str) -> [str]:
         try:
