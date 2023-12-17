@@ -27,7 +27,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Ramskit - CLI Tool for Ramskit Ransomware")
     parser.add_argument('-a', '--action', dest="action", required=True,
                         help='Action to perform [encrypt/decrypt/generate_key]')
-    parser.add_argument('-p', '--path', dest="path", help='Path to file(s) to encrypt/decrypt')
+    # parser.add_argument('-p', '--path', dest="path", help='Path to file(s) to encrypt/decrypt')
+    parser.add_argument('-f', '--file', dest="path", help='File(s) to encrypt/decrypt') # FIXME 3: Check this
     args = parser.parse_args()
     
     ramskit = Ramskit()
