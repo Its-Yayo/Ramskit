@@ -35,12 +35,12 @@ if __name__ == '__main__':
     key = ramskit.load_key()
 
     action = args.action.lower()
-    path = args.path
+    file = args.file
 
     # FIXME 2: Encrypt/decrypt
     if action == 'encrypt':
         # It needs changes here
-        with open(lam, 'w') as f:
+        with open(file, 'w') as f:
             f.write('''
                 Heyo, this file has been encrypted!. \n\n
             ''')
@@ -50,9 +50,10 @@ if __name__ == '__main__':
         if not os.path.exists(lam):
             print('No look_at_me.txt file found. Exiting...')
             sys.exit(1)
-            
-        os.remove(lam)
-        items.remove(lam)
+        
+        # FIXME 4: Check key   
+        os.remove(key)
+        items.remove(key)
         ramskit.decrypt_file(items, key)
     elif action == 'generate_key':
         print(Ramskit.generate_key())
