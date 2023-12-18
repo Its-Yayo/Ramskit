@@ -22,7 +22,8 @@ import sys
 import argparse
 
 
-# TODO 1: Implement Ramskit classls
+# TODO 1: Implement Ramskit class
+# TODO 2: Check CLI args
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Ramskit - CLI Tool for Ramskit Ransomware")
     parser.add_argument('-a', '--action', dest="action", required=True,
