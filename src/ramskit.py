@@ -31,7 +31,9 @@ class Ramskit:
         if self.key is None:
             print("[x] Key does not exist.\n[x]Creating key...")
             self.key = Ramskit.generate_key()
+
         print(f"[x] Key is {self.key}")
+
     
     # FIXME: Fix encrypt method
     def encrypt_file(self, items, key) -> None:
@@ -46,6 +48,7 @@ class Ramskit:
             with open(item, 'wb') as file:
                 file.write(encrypted)
 
+
     def decrypt_file(self, items, key) -> None:
         f = Fernet(key)
         for item in items:
@@ -58,11 +61,13 @@ class Ramskit:
             with open(item, 'wb') as file:
                 file.write(decrypted)
 
+
     @staticmethod
     def generate_key() -> bytes:
         key = Fernet.generate_key()
         with open('key.key', 'wb') as file:
             file.write(key)
+
         return key
         
     
@@ -70,5 +75,6 @@ class Ramskit:
     def load_key() -> bytes:
         with open('key.key', 'rb') as file:
             return file.read()
+
         return None
 
