@@ -15,7 +15,6 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>. """
 
-
 from cryptography.fernet import Fernet
 
 current_version = "v1.0.0"
@@ -34,7 +33,6 @@ class Ramskit:
 
         print(f"[x] Key is {self.key}")
 
-    
     # FIXME: Fix encrypt method
     def encrypt_file(self, items, key) -> None:
         f = Fernet(key)
@@ -48,7 +46,6 @@ class Ramskit:
             with open(item, 'wb') as file:
                 file.write(encrypted)
 
-
     def decrypt_file(self, items, key) -> None:
         f = Fernet(key)
         for item in items:
@@ -61,7 +58,6 @@ class Ramskit:
             with open(item, 'wb') as file:
                 file.write(decrypted)
 
-
     @staticmethod
     def generate_key() -> bytes:
         key = Fernet.generate_key()
@@ -69,12 +65,10 @@ class Ramskit:
             file.write(key)
 
         return key
-        
-    
+
     @staticmethod
     def load_key() -> bytes:
         with open('key.key', 'rb') as file:
             return file.read()
 
         return None
-
