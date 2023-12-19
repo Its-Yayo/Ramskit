@@ -72,20 +72,3 @@ class Ramskit:
             return file.read()
         return None
 
-    """
-    # From here these functions will be gone in order to encrypt/decrypt a single file
-    @staticmethod
-    def expand_dir(path: str) -> [str]:
-        try:
-            return [Ramskit.expand_dir(os.path.join(path, file)) for file in os.listdir(path)]
-        except NotADirectoryError:
-            return [path]
-
-    @staticmethod
-    def flatten(something) -> [str]:
-        if isinstance(something, (list, tuple, set, range)):
-            for sub in something:
-                yield from Ramskit.flatten(sub)
-        else:
-            yield something """
-
