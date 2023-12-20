@@ -35,23 +35,23 @@ def main() -> None:
     key = ramskit.load_key()
 
     action = args.action.lower()
-    path = args.path
+    encrypted = args.path
 
-    # FIXME 2: Encrypt/decrypt
+    # FIXME 3: Check args
     if action == 'encrypt':
-        if not os.path.isfile(path):
-            print(f"[x] The file {path} does not exist. Exiting...")
+        if not os.path.isfile(encrypted):
+            print(f"[x] The file {encrypted} does not exist. Exiting...")
             sys.exit(1)
 
         # Implement all this stuff
-        full_path = os.path.abspath(path)
-        encrypted_file_path = os.path.join(os.path.dirname(full_path), 'look_at_me.txt')
+        path_encrypted = encrypted
+        items = os.listdir(path_encrypted)
+        full_path_encrypted = [os.path.join(path_encrypted, item) for item in items]
 
-        with open(full_path, 'rb') as file:
-            encrypted_data = ramskit.encrypt_file(file.read(), key)
-
-        with open(encrypted_file_path, 'w') as file:
-            file.write('Heyo, this file has been encrypted!. \n\n')
+        with open(os.path.join(path_encrypted, 'look_at_me.txt'), 'w') as file:
+            ramskit.encrypt_file(full_path_encrypted, key)
+            file.write("Yo, this file has been encrypted")
+            file.close()
 
     elif action == 'decrypt':
         # FIXME 4: Check and fix key
