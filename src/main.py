@@ -25,7 +25,7 @@ import argparse
 # TODO 1: Implement Ramskit class
 # TODO 2: Check CLI args
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Ramskit - CLI Tool for Ramskit Ransomware")
+    parser = argparse.ArgumentParser(description="Ramskit - CLI Tool for Ramskit")
     parser.add_argument('-a', '--action', dest="action", required=True,
                         help='Action to perform [encrypt/decrypt]')
     parser.add_argument('-p', '--path', dest="path", help='Path to file(s) to encrypt/decrypt')
