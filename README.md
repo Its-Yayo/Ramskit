@@ -16,7 +16,7 @@ options:
   -p PATH, --path PATH  Path to file(s) to encrypt/decrypt
 ```
 
-## Local cpntributions
+## Local contributions
 You can test this project in your localhost by cloning it. 
 ```
 $ git clone https://github.com/Its-Yayo/Ramskit.git
