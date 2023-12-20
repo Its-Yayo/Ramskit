@@ -47,7 +47,6 @@ def main() -> None:
             print("[x] Please provide the path to the file using the -p or --path option. Exiting...")
             sys.exit(1)
 
-        # Implement all this stuff
         ramskit.encrypt_file(encrypted, key)
         print("[x] File encrypted. Exiting...")
 
