@@ -18,7 +18,7 @@ import os.path
 
 from cryptography.fernet import Fernet
 
-current_version = "v1.0.0"
+current_version = "v1.0.1"
 
 
 # TODO 2: Add usages for encrypt
