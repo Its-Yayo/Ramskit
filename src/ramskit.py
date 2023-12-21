@@ -70,7 +70,6 @@ class Ramskit:
         with open('key.key', 'wb') as file:
             return file.write(key)  # Check this stuff
 
-
     @staticmethod
     def load_key() -> bytes:
         with open('key.key', 'rb') as file:
