@@ -52,7 +52,6 @@ class Ramskit:
             with open(normalized_item, 'wb') as file:
                 file.write(encrypted)
 
-    # FIXME: Fix decrypt method
     def decrypt_file(self, items, key) -> None:
         fernet = Fernet(key)
 
