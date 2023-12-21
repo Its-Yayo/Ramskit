@@ -19,7 +19,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. """
 import os.path
 from cryptography.fernet import Fernet
 
-current_version = "v1.0.1"
+current_version = "v1.1.0"
 
 
 # TODO 2: Add usages for decrypt
