@@ -53,11 +53,12 @@ class Ramskit:
 
     # FIXME: Fix decrypt method
     def decrypt_file(self, items, key) -> None:
+        fernet = Fernet(key)
+
         for item in items:
             with open(item, 'rb') as file:
                 data = file.read()
 
-            fernet = Fernet(key)
             decrypted = fernet.decrypt(data)
 
             with open(item, 'wb') as file:
