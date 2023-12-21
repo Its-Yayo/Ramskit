@@ -21,7 +21,7 @@ from cryptography.fernet import Fernet
 current_version = "v1.0.1"
 
 
-# TODO 2: Add usages for encrypt
+# TODO 2: Add usages for decrypt
 class Ramskit:
     def __init__(self) -> None:
         print(f"[x] Starting Ramskit {current_version}")
@@ -30,11 +30,12 @@ class Ramskit:
 
         if self.key is None:
             print("[x] Key does not exist.\n[x]Creating key...")
-            self.key = Ramskit.generate_key()
+
+            with open('key.key', "wb") as f:
+                self.key = Ramskit.generate_key()
 
         print(f"[x] Key is {self.key}")
 
-    # FIXME: Fix encrypt method
     def encrypt_file(self, items, key) -> None:
         fernet = Fernet(key)
 
@@ -50,6 +51,7 @@ class Ramskit:
             with open(normalized_item, 'wb') as file:
                 file.write(encrypted)
 
+    # FIXME: Fix decrypt method
     def decrypt_file(self, items, key) -> None:
         for item in items:
             with open(item, 'rb') as file:

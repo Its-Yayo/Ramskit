@@ -50,14 +50,10 @@ def main() -> None:
         ramskit.encrypt_file([encrypted], key)
         print("[x] File encrypted. Exiting...")
 
-
     elif action == 'decrypt':
         # FIXME 4: Check and fix key
-        os.remove(key)
-        items.remove(key)
-        ramskit.decrypt_file(items, key)
-    elif action == 'generate_key':
-        print(Ramskit.generate_key())
+        pass
+
     else:
         raise Exception('Invalid action: ', action)
 
