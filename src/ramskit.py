@@ -19,13 +19,13 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. """
 import os.path
 from cryptography.fernet import Fernet
 
-current_version = "v1.1.0"
+CURRENT = "v1.1.0"
 
 
 # TODO 2: Add usages for decrypt
 class Ramskit:
     def __init__(self) -> None:
-        print(f"[x] Starting Ramskit {current_version}")
+        print(f"[x] Starting Ramskit {CURRENT}")
         print("[x] Reading key...")
         self.key = Ramskit.load_key()
 
