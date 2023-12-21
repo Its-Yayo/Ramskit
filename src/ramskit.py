@@ -79,3 +79,5 @@ class Ramskit:
     def load_key() -> bytes:
         with open('key.key', 'rb') as file:
             return file.read()
+
+

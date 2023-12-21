@@ -50,12 +50,28 @@ def main() -> None:
 
     elif action == 'decrypt':
         # FIXME 4: Check and fix key
-        pass
+        if not os.path.isfile(encrypted):
+            print(f"[x] The file {encrypted} does not exist. Exiting...")
+            sys.exit(1)
+
+        if not encrypted:
+            print("[x] Please provide the path to the file using the -p or --path option. Exiting...")
+            sys.exit(1)
+
+        ramskit.decrypt_file([encrypted], key)
+        print("[x] File decrypted. Exiting...")
 
     else:
-        raise Exception('Invalid action: ', action)
+        if not action:
+            print("[x] Please provide the action using the -a or --action option. Exiting...")
+            sys.exit(1)
+        else:
+            print(f'[x] Invalid action: {action}. Exiting...')
+
 
 
 if __name__ == '__main__':
     main()
     sys.exit(0)
+
+
