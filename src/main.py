@@ -21,6 +21,7 @@ import os
 import sys
 import argparse
 
+
 # TODO 1: Implement decrypt method stuff
 def main() -> None:
     parser = argparse.ArgumentParser(description="Ramskit - CLI Tool for Ramskit")
