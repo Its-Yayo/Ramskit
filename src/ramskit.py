@@ -68,7 +68,7 @@ class Ramskit:
         key = Fernet.generate_key()
 
         with open('key.key', 'wb') as file:
-            return file.write(key)  # Check this stuff
+            return file.write(key)
 
     @staticmethod
     def load_key() -> bytes:
