@@ -22,7 +22,7 @@ import sys
 import argparse
 
 
-# TODO 1: Implement decrypt method stuff
+# TODO 1: Check key implementation for next version
 def main() -> None:
     parser = argparse.ArgumentParser(description="Ramskit - CLI Tool for Ramskit")
     parser.add_argument('-a', '--action', dest="action", required=True,
