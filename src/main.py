@@ -29,10 +29,12 @@ def main() -> None:
                         help='Action to perform [encrypt/decrypt]')
     parser.add_argument('-p', '--path', dest="path", help='Path to file(s) to encrypt/decrypt')
     args = parser.parse_args()
-    
+
+    # Objects
     ramskit = Ramskit()
     key = ramskit.load_key()
 
+    # CLI args
     action = args.action.lower()
     encrypted = args.path
 
