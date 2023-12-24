@@ -40,6 +40,9 @@ def main() -> None:
 
     # FIXME 3: Check args
     if action == 'encrypt':
+        # Test path file
+        encrypted_path = os.listdir(encrypted)
+
         if not os.path.isfile(encrypted):
             print(f"[x] The file {encrypted} does not exist. Exiting...")
             sys.exit(1)
@@ -50,6 +53,9 @@ def main() -> None:
 
         ramskit.encrypt_file([encrypted], key)
         print("[x] File encrypted. Exiting...")
+
+        with open('look_at_me.txt', 'r') as file:
+            file.write(f"Your file {encrypted} has been encrypted. Use -a or --action decrypt in ur CLI.")
 
     elif action == 'decrypt':
         # FIXME 4: Check and fix key
