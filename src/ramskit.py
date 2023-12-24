@@ -81,9 +81,6 @@ class Ramskit:
             if os.path.exists(new_path):
                 os.remove(new_path)
 
-
-
-
     @staticmethod
     def generate_key() -> int:
         key = Fernet.generate_key()
