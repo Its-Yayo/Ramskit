@@ -56,7 +56,7 @@ class Ramskit:
             new_path = os.path.join(directory, 'look_at_me.txt')
 
             with open(new_path, 'w') as file:
-                file.write(f"Hello, your file {normalized_item} has been encrypted. "
+                file.write(f"Hello, your file '{normalized_item}' has been encrypted. "
                            f"Use the '-a or --action decrypt' usage to decrypt this file!")
 
 
@@ -76,7 +76,7 @@ class Ramskit:
                 file.write(decrypted)
 
             directory = os.path.dirname(normalized_item)
-            new_path = os.path.join(directory, 'look_at_ne')
+            new_path = os.path.join(directory, 'look_at_me.txt')
 
             if os.path.exists(new_path):
                 os.remove(new_path)
