@@ -1,5 +1,5 @@
 # Ramskit
-Ramskit is a single ransomware tool to encrypt and decrypt data written in Python. Ramskit will automate shich file from a complete path the user wants to encrypt and decrypt. Pre-production beta project. For more info and downloads, see [wiki](https://its-yayo.github.io/ramskit)
+Ramskit is a single ransomware tool to encrypt and decrypt data written in Python. Ramskit will automate shich file from a complete path the user wants to encrypt and decrypt. Pre-production project. For more info and downloads, see [wiki](https://its-yayo.github.io/ramskit)
 
 ## Usage
 
