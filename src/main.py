@@ -70,7 +70,6 @@ def main() -> None:
             print(f'[x] Invalid action: {action}. Exiting...')
 
 
-
 if __name__ == '__main__':
     main()
     sys.exit(0)
