@@ -59,7 +59,6 @@ class Ramskit:
                 file.write(f"Hello, your file '{normalized_item}' has been encrypted. "
                            f"Use the '-a or --action decrypt' usage to decrypt this file!")
 
-
     def decrypt_file(self, items, key) -> None:
         fernet = Fernet(key)
 
