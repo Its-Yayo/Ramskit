@@ -22,8 +22,7 @@ import sys
 import argparse
 
 
-# TODO 1: Check key implementation for next version
-# TODO 2: Add try statements for Fernet exceptions
+# TODO: Add try statements for Fernet exceptions
 def main() -> None:
     parser = argparse.ArgumentParser(description="Ramskit - CLI Tool for Ramskit")
     parser.add_argument('-a', '--action', dest="action", required=True,
