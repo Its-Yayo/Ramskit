@@ -50,7 +50,6 @@ def main() -> None:
         print("[x] File encrypted. Exiting...")
 
     elif action == 'decrypt':
-        # FIXME 4: Check and fix key
         if not os.path.isfile(encrypted):
             print(f"[x] The file {encrypted} does not exist. Exiting...")
             sys.exit(1)
