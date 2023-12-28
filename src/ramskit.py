@@ -40,7 +40,6 @@ class Ramskit:
 
         for item in items:
             normalized_item = os.path.normpath(item)
-            print(f"[Debug] Opening file: {normalized_item}")  # Debug message
 
             with open(normalized_item, 'rb') as file:
                 data = file.read()
@@ -62,7 +61,6 @@ class Ramskit:
 
         for item in items:
             normalized_item = os.path.normpath(item)
-            print(f"[Debug] Opening file: {normalized_item}")  # Debug message
 
             with open(normalized_item, 'rb') as file:
                 data = file.read()
