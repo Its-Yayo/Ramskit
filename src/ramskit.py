@@ -21,6 +21,7 @@ from cryptography.fernet import Fernet
 
 CURRENT = "v1.1.0"
 
+
 class Ramskit:
     def __init__(self) -> None:
         print(f"[x] Starting Ramskit {CURRENT}")
