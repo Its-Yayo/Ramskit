@@ -61,7 +61,6 @@ class Ramskit:
     def decrypt_file(self, items, key) -> None:
         fernet = Fernet(key)
 
-        # TODO: Add try statement for file decryption
         for item in items:
             normalized_item = os.path.normpath(item)
 
