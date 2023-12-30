@@ -20,7 +20,7 @@ from cryptography.fernet import Fernet
 import os.path
 
 
-CURRENT = "v1.1.0"
+CURRENT = "v1.2.0"
 
 
 class Ramskit:
