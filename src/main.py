@@ -24,7 +24,7 @@ import argparse
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Ramskit - CLI Tool for Ramskit")
+    parser = argparse.ArgumentParser(description="Ramskit - CLI Usages")
     parser.add_argument('-a', '--action', dest="action", required=True,
                         help='Action to perform [encrypt/decrypt]')
     parser.add_argument('-p', '--path', dest="path", help='Path to file(s) to encrypt/decrypt')
@@ -43,6 +43,13 @@ def main() -> None:
 
         if not encrypted:
             print("[x] Please provide the path to the file using the -p or --path option. Exiting...")
+            sys.exit(1)
+
+        directory = os.path.dirname(os.path.normpath(encrypted))
+        notification_file_path = os.path.join(directory, 'look_at_me.txt')
+
+        if os.path.exists(notification_file_path):
+            print("[x] The file is already encrypted. Exiting...")
             sys.exit(1)
 
         ramskit.encrypt_file([encrypted], key)
