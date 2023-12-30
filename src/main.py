@@ -15,6 +15,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>. """
 
+import cryptography.fernet
 
 from ramskit import Ramskit
 import os
@@ -48,16 +49,21 @@ def main() -> None:
         print("[x] File encrypted. Exiting...")
 
     elif action == 'decrypt':
-        if not os.path.isfile(encrypted):
-            print(f"[x] The file {encrypted} does not exist. Exiting...")
-            sys.exit(1)
+        try:
+            if not os.path.isfile(encrypted):
+                print(f"[x] The file {encrypted} does not exist. Exiting...")
+                sys.exit(1)
 
-        if not encrypted:
-            print("[x] Please provide the path to the file using the -p or --path option. Exiting...")
-            sys.exit(1)
+            if not encrypted:
+                print("[x] Please provide the path to the file using the -p or --path option. Exiting...")
+                sys.exit(1)
 
-        ramskit.decrypt_file([encrypted], key)
-        print("[x] File decrypted. Exiting...")
+            ramskit.decrypt_file([encrypted], key)
+            print("[x] File decrypted. Exiting...")
+
+        except cryptography.fernet.InvalidToken:
+            print(f"[x] The file {encrypted} is not encrypted and doesn't have a key. Exiting...")
+            sys.exit(1)
 
     else:
         if not action:
