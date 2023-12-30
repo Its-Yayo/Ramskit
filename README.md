@@ -4,10 +4,10 @@ Ramskit is a single ransomware tool to encrypt and decrypt data written in Pytho
 ## Usage
 
 ```bash
-$ python main.py -h
+$ python main.py -h                                                                          
 usage: main.py [-h] -a ACTION [-p PATH]
 
-Ramskit - CLI Tool for Ramskit
+Ramskit - CLI Usages
 
 options:
   -h, --help            show this help message and exit
