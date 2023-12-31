@@ -38,7 +38,7 @@ class Ramskit:
 
         print(f"[Debug] Key is {self.key}")
 
-    def encrypt_file(self, items: collections.Iterable, key: str) -> None:
+    def encrypt_file(self, items: collections.Iterable, key: bytes) -> None:
         fernet = Fernet(key)
 
         for item in items:
@@ -59,7 +59,7 @@ class Ramskit:
                 file.write(f"Hello, your file '{normalized_item}' has been encrypted. "
                            f"Use the '-a or --action decrypt' usage to decrypt this file!")
 
-    def decrypt_file(self, items: collections.Iterable, key: str) -> None:
+    def decrypt_file(self, items: collections.Iterable, key: bytes) -> None:
         fernet = Fernet(key)
 
         for item in items:
