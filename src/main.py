@@ -38,19 +38,16 @@ def main() -> None:
 
     if action == 'encrypt':
         if not os.path.isfile(encrypted):
-            print(f"[x] The file {encrypted} does not exist. Exiting...")
-            sys.exit(1)
+            print(f"[x] The file {encrypted} does not exist. ")
 
         if not encrypted:
-            print("[x] Please provide the path to the file using the -p or --path option. Exiting...")
-            sys.exit(1)
+            print("[x] Please provide the path to the file using the -p or --path option. ")
 
         directory = os.path.dirname(os.path.normpath(encrypted))
         notification_file_path = os.path.join(directory, 'look_at_me.txt')
 
         if os.path.exists(notification_file_path):
-            print("[x] The file is already encrypted. Exiting...")
-            sys.exit(1)
+            print("[x] The file is already encrypted. ")
 
         ramskit.encrypt_file([encrypted], key)
         print("[x] File encrypted. ")
@@ -58,26 +55,24 @@ def main() -> None:
     elif action == 'decrypt':
         try:
             if not os.path.isfile(encrypted):
-                print(f"[x] The file {encrypted} does not exist. Exiting...")
-                sys.exit(1)
+                print(f"[x] The file {encrypted} does not exist. ")
 
             if not encrypted:
-                print("[x] Please provide the path to the file using the -p or --path option. Exiting...")
-                sys.exit(1)
+                print("[x] Please provide the path to the file using the -p or --path option. ")
 
             ramskit.decrypt_file([encrypted], key)
             print("[x] File decrypted. ")
 
         except cryptography.fernet.InvalidToken:
-            print(f"[x] The file {encrypted} is not encrypted and doesn't have a key. Exiting...")
+            print(f"[x] The file {encrypted} is not encrypted and doesn't have a key. ")
             sys.exit(1)
 
     else:
         if not action:
-            print("[x] Please provide the action using the -a or --action option. Exiting...")
+            print("[x] Please provide the action using the -a or --action option. ")
             sys.exit(1)
         else:
-            print(f'[x] Invalid action: {action}. Exiting...')
+            print(f'[x] Invalid action: {action}. ')
 
 
 if __name__ == '__main__':
