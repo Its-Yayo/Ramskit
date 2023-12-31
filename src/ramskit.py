@@ -29,8 +29,9 @@ class Ramskit:
         print("[x] Reading key...")
         self.key = Ramskit.load_key()
 
-        if self.key is None:
-            print("[x] Key does not exist.\n[x]Creating key...")
+        if not self.key:
+            print("[x] Key does not exist.\n"
+                  "[x] Creating key...")
 
             with open('key.key', "wb") as f:
                 self.key = Ramskit.generate_key()
