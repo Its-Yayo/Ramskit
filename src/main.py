@@ -53,7 +53,7 @@ def main() -> None:
             sys.exit(1)
 
         ramskit.encrypt_file([encrypted], key)
-        print("[x] File encrypted. Exiting...")
+        print("[x] File encrypted. ")
 
     elif action == 'decrypt':
         try:
@@ -66,7 +66,7 @@ def main() -> None:
                 sys.exit(1)
 
             ramskit.decrypt_file([encrypted], key)
-            print("[x] File decrypted. Exiting...")
+            print("[x] File decrypted. ")
 
         except cryptography.fernet.InvalidToken:
             print(f"[x] The file {encrypted} is not encrypted and doesn't have a key. Exiting...")
@@ -82,6 +82,7 @@ def main() -> None:
 
 if __name__ == '__main__':
     main()
+    print("\n[x] Ramskit done. Exiting...")
     sys.exit(0)
 
 
