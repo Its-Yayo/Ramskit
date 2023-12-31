@@ -19,7 +19,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. """
 from cryptography.fernet import Fernet
 import os.path
 
-
 CURRENT = "v1.2.0"
 
 
