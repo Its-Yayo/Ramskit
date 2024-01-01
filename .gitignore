@@ -38,9 +38,6 @@ wp-config.php
 # Key files
 *.key
 
-# Test files
-*.txt
-
 # All plugins
 #
 # Note: If you wish to whitelist plugins,
