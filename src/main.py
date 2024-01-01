@@ -27,7 +27,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Ramskit - CLI Usages")
     parser.add_argument('-a', '--action', dest="action", required=True,
                         help='Action to perform [encrypt/decrypt]')
-    parser.add_argument('-p', '--path', dest="path", help='Path to file(s) to encrypt/decrypt')
+    parser.add_argument('-p', '--path', dest="path", required=True,
+                        help='Path to file(s) to encrypt/decrypt')
     args = parser.parse_args()
 
     ramskit = Ramskit()
