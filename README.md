@@ -25,7 +25,7 @@ $ cd Ramskit
 
 You can load in your localhost the last changes of Ramskit.
 ```
-$ git pull
+$ git pull origin
 ```
 
 ## Notes
