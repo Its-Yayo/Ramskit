@@ -24,7 +24,7 @@ import argparse
 
 
 # TODO: Ramskit.py add time args for v1.2.1
-# TODO: .deb package for v2.0.0 -> Lol no more details from now!!!
+# TODO: .deb package for v2.0.0 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Ramskit - CLI Usages")
     parser.add_argument('-a', '--action', dest="action", required=True,
