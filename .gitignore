@@ -38,6 +38,12 @@ wp-config.php
 # Key files
 *.key
 
+# Build Packages
+*ramskit_package
+*/DEBIAN
+*control
+*.bat
+
 # All plugins
 #
 # Note: If you wish to whitelist plugins,
