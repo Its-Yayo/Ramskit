@@ -43,6 +43,8 @@ wp-config.php
 */DEBIAN
 *control
 *.bat
+*.deb
+*.exe
 
 # All plugins
 #

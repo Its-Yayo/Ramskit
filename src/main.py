@@ -79,7 +79,7 @@ def main() -> None:
 
 
 if __name__ == '__main__':
-    ramskit_package.main()
+    main()
     print("\n[x] Ramskit done. Exiting...")
     sys.exit(0)
 
