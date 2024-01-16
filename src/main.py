@@ -78,7 +78,7 @@ def main() -> None:
 
 
 if __name__ == '__main__':
-    main()
+    main()  # Check ramskit package CLI init arg -> rather than main.py, use ramskit
     print("\n[x] Ramskit done. Exiting...")
     sys.exit(0)
 
