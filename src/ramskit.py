@@ -24,6 +24,7 @@ CURRENT = "v1.2.0"
 
 
 # TODO: Update CLI addition time for encrypt/decrypt for v2.0.1
+# Check CLI tool for v2.0.0, updates Feb 2024
 class Ramskit:
     def __init__(self) -> None:
         print(f"[x] Starting Ramskit {CURRENT}")
