@@ -23,7 +23,7 @@ import sys
 import argparse
 
 
-# TODO: .deb and .exe package for v2.0.0 -> Means for apt package too!
+# TODO: .deb and .exe package for v2.0.0 -> Means for apt package too for Debian-based distros!
 def main() -> None:
     parser = argparse.ArgumentParser(description="Ramskit - CLI Usages")
     parser.add_argument('-a', '--action', dest="action", required=True,
