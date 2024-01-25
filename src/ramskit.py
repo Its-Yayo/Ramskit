@@ -38,8 +38,6 @@ class Ramskit:
             with open('key.key', "wb") as f:
                 self.key = Ramskit.generate_key()
 
-        # print(f"[Debug] Key is {self.key}")
-
     def encrypt_file(self, items: collections.Iterable, key: bytes) -> None:
         fernet = Fernet(key)
 
