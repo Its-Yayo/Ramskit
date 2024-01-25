@@ -2,7 +2,7 @@
 Ramskit is a single kit tool to encrypt and decrypt data written in Python. Ramskit will automate which file from a complete path the user wants to encrypt/decrypt. For more info and downloads, see [wiki](https://its-yayo.github.io/ramskit) (Updated to Jan 2024)
 
 ## Usages
-(For latest version - v1.2.0)
+(For latest version v1.2.0, Jan 2024)
 
 ```bash
 $ python main.py -h                                                                          
