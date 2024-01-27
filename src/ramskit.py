@@ -23,7 +23,7 @@ import os.path
 CURRENT = "v1.2.0"
 
 
-# TODO: CLI tool for v1.2.1, updates Feb 2024
+# TODO: CLI tool for v1.2.1, updates Jan 2024
 # TODO: Update CLI addition time for encrypt/decrypt for v2.0.1
 class Ramskit:
     def __init__(self) -> None:
