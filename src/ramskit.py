@@ -23,7 +23,6 @@ import os.path
 CURRENT = "v1.2.0"
 
 
-# TODO: Update CLI addition time for encrypt/decrypt for v2.0.1
 class Ramskit:
     def __init__(self) -> None:
         print(f"[x] Starting Ramskit {CURRENT}")
