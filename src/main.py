@@ -15,7 +15,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>. """
 
-import cryptography.fernet
+from cryptography import fernet
 
 from ramskit import Ramskit
 import os
