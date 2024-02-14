@@ -23,7 +23,7 @@ import sys
 import argparse
 
 
-# TODO: .deb package for v2.0.0 -> Means for apt package too for Debian-based distros!
+# TODO: .deb package for v2.0.0 -> Also a package for Debian-based distros!
 def main() -> None:
     parser = argparse.ArgumentParser(description="Ramskit - CLI Usages")
     parser.add_argument('-a', '--action', dest="action", required=True,
@@ -73,8 +73,8 @@ def main() -> None:
         if not action:
             print("[x] Please provide the action using the -a or --action option. ")
             sys.exit(1)
-        else:
-            print(f'[x] Invalid action: {action}. ')
+        
+        print(f'[x] Invalid action: {action}. ')
 
 
 if __name__ == '__main__':
