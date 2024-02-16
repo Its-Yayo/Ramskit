@@ -22,6 +22,7 @@ import os.path
 
 CURRENT = "v1.2.0"
 
+
 class Ramskit:
     def __init__(self) -> None:
         print(f"[x] Starting Ramskit {CURRENT}")
