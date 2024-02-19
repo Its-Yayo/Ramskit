@@ -32,6 +32,7 @@ def main() -> None:
                         help='Path to file(s) to encrypt/decrypt')
     args = parser.parse_args()
 
+    # Check ramskit package CLI init arg -> rather than main.py, use ramskit
     ramskit = Ramskit()
     key = ramskit.load_key()
 
@@ -78,7 +79,7 @@ def main() -> None:
 
 
 if __name__ == '__main__':
-    main()  # Check ramskit package CLI init arg -> rather than main.py, use ramskit
+    main()  
     print("\n[x] Ramskit done. Exiting...")
     sys.exit(0)
 
