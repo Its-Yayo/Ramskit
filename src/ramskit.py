@@ -28,6 +28,7 @@ class Ramskit:
     def __init__(self) -> None:
         print(f"[x] Starting Ramskit {CURRENT}")
         print("[x] Reading key...")
+        
         self.key = Ramskit.load_key()
 
         if not self.key:
