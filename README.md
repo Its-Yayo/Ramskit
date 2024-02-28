@@ -17,7 +17,7 @@ options:
   -p PATH, --path PATH  Path to file(s) to encrypt/decrypt
 ```
 
-As an init action, you should downloard the Ramskit's requirements
+As an init action, you should download the Ramskit's requirements
 
 ```bash
 $ python3 -m pip install -r requirements.txt
