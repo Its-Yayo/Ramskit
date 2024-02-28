@@ -17,6 +17,12 @@ options:
   -p PATH, --path PATH  Path to file(s) to encrypt/decrypt
 ```
 
+As an init action, you should downloard the Ramskit's requirements
+
+```bash
+$ python3 -m pip install -r requirements.txt
+```
+
 ## Local contributions
 You can test this project in your localhost by cloning it. 
 ```
