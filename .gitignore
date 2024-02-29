@@ -38,7 +38,7 @@ wp-config.php
 # Key files
 *.key
 
-# Build Packages
+# Build packages
 *ramskit_package
 */DEBIAN
 *control
