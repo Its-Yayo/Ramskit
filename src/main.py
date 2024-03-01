@@ -26,7 +26,7 @@ import argparse
 
 # TODO: .deb package for v2.0.0 -> Also an apt package for Debian-based distros!
 def main() -> None:
-    """Type $ python3 main.py -h in console for help"""
+    """Type 'python3 main.py -h' in console for help"""
     parser = argparse.ArgumentParser(description="Ramskit - CLI Usages")
     parser.add_argument('-a', '--action', dest="action", required=True,
                         help='Action to perform [encrypt/decrypt]')
