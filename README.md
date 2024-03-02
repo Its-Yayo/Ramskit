@@ -39,4 +39,4 @@ $ git pull origin
 This tool is just for educational and testing purposes. I'm not responsible of the damage a cracker would exponentially create. This project is under the [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) license.  
 
 
-Happy coding folks. 
+Happy coding folks :)
