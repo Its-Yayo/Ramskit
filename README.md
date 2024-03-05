@@ -1,5 +1,4 @@
-<div align="center">
-  <h1>Ramskit</h1>
+<h1>Ramskit</h1>
 
 <p>
   <a href="https://github.com/Its-Yayo/Ramskit/graphs/contributors">
@@ -18,10 +17,10 @@
     <img src="https://img.shields.io/github/license/Its-Yayo/Ramskit.svg" alt="license" />
   </a>
 </p>
-</div>
 
 
-Ramskit is a single kit tool to encrypt and decrypt data written in Python. Ramskit will automate which file from a complete path the user wants to encrypt/decrypt. 
+
+Ramskit is a single kit tool to encrypt and decrypt data. Ramskit will automate which file from a complete path the user wants to encrypt/decrypt. 
 
 ## Getting Started
 
