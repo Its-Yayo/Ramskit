@@ -1,8 +1,33 @@
-# Ramskit
-Ramskit is a single kit tool to encrypt and decrypt data written in Python. Ramskit will automate which file from a complete path the user wants to encrypt/decrypt. For more info and downloads, see [wiki](https://its-yayo.github.io/ramskit) 
+<div align="center">
+  <h1>Ramskit</h1>
 
-## Usages
-(For latest version v1.2.0)
+<p>
+  <a href="https://github.com/Its-Yayo/Ramskit/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/Its-Yayo/Ramskit" alt="contributors" />
+  </a>
+  <a href="https://github.com/Its-Yayo/Ramskit/network/members">
+    <img src="https://img.shields.io/github/forks/Its-Yayo/Ramskit" alt="forks" />
+  </a>
+  <a href="https://github.com/Its-Yayo/ramskit/issues">
+    <img src="https://img.shields.io/github/issues/Its-Yayo/Ramskit" alt="issues" />
+  </a>
+    <a href="https://github.com/Its-Yayo/Ramskit/stargazers">
+    <img src="https://img.shields.io/github/stars/Its-Yayo/Ramskit" alt="stars" />
+  </a>
+  <a href="https://github.com/Its-Yayo/Ramskit/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/Its-Yayo/Ramskit.svg" alt="license" />
+  </a>
+</p>
+</div>
+
+
+Ramskit is a single kit tool to encrypt and decrypt data written in Python. Ramskit will automate which file from a complete path the user wants to encrypt/decrypt. 
+
+## Getting Started
+
+For more info and downloads, see [wiki](https://its-yayo.github.io/ramskit) 
+
+(For latest version v1.2.0): 
 
 ```bash
 $ python main.py -h                                                                          
