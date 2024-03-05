@@ -25,7 +25,6 @@ Ramskit is a single kit tool to encrypt and decrypt data. Ramskit will automate 
 ## Getting Started
 
 For more info and downloads, see [wiki](https://its-yayo.github.io/ramskit) 
-
 (For latest version v1.2.0): 
 
 ```bash
@@ -60,7 +59,10 @@ $ git pull origin
 ```
 
 ## Notes
-This tool is just for educational and testing purposes. I'm not responsible of the damage a cracker would exponentially create. This project is under the [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) license.  
+This tool is just for educational and testing purposes. I'm not responsible of the damage a cracker would exponentially create. This project is under the [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) license. Any PR's will be welcomed for improvements. Also, issues are open. 
+
+## License
+This project is under the [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) license.  
 
 
 Happy coding folks :)
