@@ -72,12 +72,10 @@ def main() -> None:
 
         except cryptography.fernet.InvalidToken:
             print(f"[x] The file {encrypted} is not encrypted and doesn't have a key. ")
-            sys.exit(1)
 
     else:
         if not action:
             print("[x] Please provide the action using the -a or --action option. ")
-            sys.exit(1)
         
         print(f'[x] Invalid action: {action}. ')
 
