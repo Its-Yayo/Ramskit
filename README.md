@@ -29,6 +29,7 @@ For more info and downloads, see [wiki](https://its-yayo.github.io/ramskit).
 (For latest version v1.2.0): 
 
 ```bash
+$ cd Ramskit/src
 $ python main.py -h                                                                          
 usage: main.py [-h] -a ACTION [-p PATH]
 
