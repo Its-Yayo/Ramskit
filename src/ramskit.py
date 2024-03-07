@@ -29,6 +29,7 @@ class Ramskit:
     def __init__(self) -> None:
         """ Main constructor for Ramskit.
         The constructor will check if there's a key assigned. If not, it will generate a new one."""
+        
         print(f"[x] Starting Ramskit {CURRENT}")
         print("[x] Reading key...")
         
@@ -88,6 +89,7 @@ class Ramskit:
     @staticmethod
     def generate_key() -> int:
         """ Method that will generate a 2-bit url-safe base64-encoded key for CLI Usages. """
+        
         key = Fernet.generate_key()
 
         with open('key.key', 'wb') as file:
@@ -96,6 +98,7 @@ class Ramskit:
     @staticmethod
     def load_key() -> bytes:
         """ Method that will load the key in order to overwrite the init key file. """
+        
         with open('key.key', 'rb') as file:
             return file.read()
 
