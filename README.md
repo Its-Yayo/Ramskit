@@ -30,7 +30,7 @@ For more info and downloads, see [wiki](https://its-yayo.github.io/ramskit).
 
 ```bash
 $ cd Ramskit/src
-$ python main.py -h                                                                          
+$ python3 main.py -h                                                                          
 usage: main.py [-h] -a ACTION [-p PATH]
 
 Ramskit - CLI Usages
