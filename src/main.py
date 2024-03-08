@@ -30,7 +30,7 @@ import argparse
 # TODO: .deb package for v2.0.0 -> Also an apt package for Debian-based distros!
 def main() -> None:
     # For v1.2.0
-    """ Type 'python3 main.py -h' in console for help. """
+    """ Type 'python3 main.py -h (python main.py in Windows)' in console for help. """
 
     parser = argparse.ArgumentParser(description="Ramskit - CLI Usages")
     parser.add_argument('-a', '--action', dest="action", required=True,
@@ -47,6 +47,7 @@ def main() -> None:
     encrypted = args.path
 
     if action == 'encrypt':
+        # FIXME: Logic not working
         if not os.path.isfile(encrypted):
             print(f"[x] The file {encrypted} does not exist. ")
 
@@ -64,6 +65,7 @@ def main() -> None:
 
     elif action == 'decrypt':
         try:
+            # FIXME: Logic not working
             if not os.path.isfile(encrypted):
                 print(f"[x] The file {encrypted} does not exist. ")
 
