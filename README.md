@@ -61,7 +61,7 @@ $ git pull origin
 ```
 
 ## Notes
-This tool is just for educational and testing purposes. I'm not responsible of the damage a cracker would exponentially create. Any issues and PR's will be welcomed for improvements. Contact [me](mailto:elyayoveloz@gmail.com) for copyright usages.
+This tool is just for educational and testing purposes. I'm not responsible of the damage a cracker would exponentially create. Any issues and PRs will be welcomed for improvements. Contact [me](mailto:elyayoveloz@gmail.com) for copyright usages.
 
 ## License
 This project is under the [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) license.  
