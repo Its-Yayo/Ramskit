@@ -86,6 +86,7 @@ def main() -> None:
 if __name__ == '__main__':
     main()  
     print("\n[x] Ramskit done. Exiting...")
+
     sys.exit(0)
 
 
