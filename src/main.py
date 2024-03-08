@@ -16,6 +16,8 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>. """
 
+# For exceptions set
+import cryptography
 from cryptography import fernet
 
 from ramskit import Ramskit
@@ -26,8 +28,8 @@ import argparse
 
 # TODO: .deb package for v2.0.0 -> Also an apt package for Debian-based distros!
 def main() -> None:
-    
     # For v1.2.0
+
     """ Type 'python3 main.py -h' in console for help. """
     parser = argparse.ArgumentParser(description="Ramskit - CLI Usages")
     parser.add_argument('-a', '--action', dest="action", required=True,
