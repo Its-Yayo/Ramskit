@@ -28,6 +28,7 @@ For more info and downloads, see [wiki](https://its-yayo.github.io/ramskit).
 
 (For latest version v1.2.0): 
 
+For Linux/MacOS
 ```bash
 $ cd Ramskit/src
 $ python3 main.py -h                                                                          
@@ -42,10 +43,30 @@ options:
   -p PATH, --path PATH  Path to file(s) to encrypt/decrypt
 ```
 
+For Windows
+```shell
+C:\> python main.py -h                                                                          
+usage: main.py [-h] -a ACTION [-p PATH]
+
+Ramskit - CLI Usages
+
+options:
+  -h, --help            show this help message and exit
+  -a ACTION, --action ACTION
+                        Action to perform [encrypt/decrypt]
+  -p PATH, --path PATH  Path to file(s) to encrypt/decrypt
+```
+
 As an init action, you should download the Ramskit's requirements
 
+For Linux/MacOS
 ```bash
 $ python3 -m pip install -r requirements.txt
+```
+
+For Windows
+```shell
+C:\> python -m pip install -r requirements.txt
 ```
 
 ## Local contributions
