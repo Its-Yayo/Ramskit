@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-
 """ Copyright (C) Luis De León
 
 This program is free software: you can redistribute it and/or modify
@@ -46,7 +45,7 @@ def main() -> None:
     encrypted = args.path
 
     if action == 'encrypt':
-        # FIXME: Logic not working
+        # FIXME: Logic not working for v1.2.0
         if not os.path.isfile(encrypted):
             print(f"[x] The file {encrypted} does not exist. ")
 
@@ -64,7 +63,7 @@ def main() -> None:
 
     elif action == 'decrypt':
         try:
-            # FIXME: Logic not working
+            # FIXME: Logic not working for v1.2.0
             if not os.path.isfile(encrypted):
                 print(f"[x] The file {encrypted} does not exist. ")
 
