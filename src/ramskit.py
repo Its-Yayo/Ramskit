@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-
 """ Copyright (C) Luis De León
 
 This program is free software: you can redistribute it and/or modify
@@ -27,6 +26,7 @@ CURRENT = "v1.2.0"
 
 class Ramskit:
     def __init__(self) -> None:
+        # FIXME: Check log v1.2.0 lmao
         """ Main constructor for Ramskit.
         The constructor will check if there's a key assigned. If not, it will generate a new one."""
         
