@@ -51,6 +51,7 @@ class Ramskit:
         for item in items:
             normalized_item = os.path.normpath(item)
 
+            # Check this for FIXMEs in main.py
             with open(normalized_item, 'rb') as file:
                 data = file.read()
 
