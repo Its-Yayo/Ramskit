@@ -20,12 +20,11 @@ import collections.abc as collections
 from cryptography.fernet import Fernet
 import os.path
 
-CURRENT = "v1.2.0"
+CURRENT = "v1.2.1"
 
 
 class Ramskit:
     def __init__(self) -> None:
-        # FIXME: Check log v1.2.0 lmao
         """ Main constructor for Ramskit.
         The constructor will check if there's a key assigned. If not, it will generate a new one."""
         
