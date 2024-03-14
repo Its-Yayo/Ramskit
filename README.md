@@ -26,7 +26,7 @@ Ramskit is a single kit tool to encrypt and decrypt data. Ramskit will automate 
 
 For more info and downloads, see [wiki](https://its-yayo.github.io/ramskit). 
 
-(For latest version v1.2.0): 
+(For latest version v1.2.1): 
 
 For Linux/MacOS
 ```bash
