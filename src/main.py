@@ -44,44 +44,39 @@ def main() -> None:
     action = args.action.lower()
     encrypted = args.path
 
-    if action == 'encrypt':
-        # FIXME: Logic not working for v1.2.0
-        if not os.path.isfile(encrypted):
-            print(f"[x] The file {encrypted} does not exist. ")
-
-        if not encrypted:
-            print("[x] Please provide the path to the file using the -p or --path option. ")
-
-        directory = os.path.dirname(os.path.normpath(encrypted))
-        notification_file_path = os.path.join(directory, 'look_at_me.txt')
-
-        if os.path.exists(notification_file_path):
-            print(f"[x] The file {encrypted} already encrypted. ")
-
-        ramskit.encrypt_file([encrypted], key)
-        print("[x] File encrypted. ")
-
-    elif action == 'decrypt':
-        try:
-            # FIXME: Logic not working for v1.2.0
-            if not os.path.isfile(encrypted):
-                print(f"[x] The file {encrypted} does not exist. ")
-
+    if os.path.isfile(encrypted):
+        # Yeaaaaaaa
+        if action == 'encrypt':
             if not encrypted:
                 print("[x] Please provide the path to the file using the -p or --path option. ")
 
-            ramskit.decrypt_file([encrypted], key)
-            print("[x] File decrypted. ")
+            directory = os.path.dirname(os.path.normpath(encrypted))
+            notification_file_path = os.path.join(directory, 'look_at_me.txt')
 
-        except cryptography.fernet.InvalidToken:
-            print(f"[x] The file {encrypted} is not encrypted and doesn't have a key. ")
+            if os.path.exists(notification_file_path):
+                print(f"[x] The file {encrypted} already encrypted. ")
 
+            ramskit.encrypt_file([encrypted], key)
+            print("[x] File encrypted. ")
+
+        elif action == 'decrypt':
+            try:
+                if not encrypted:
+                    print("[x] Please provide the path to the file using the -p or --path option. ")
+
+                ramskit.decrypt_file([encrypted], key)
+                print("[x] File decrypted. ")
+
+            except cryptography.fernet.InvalidToken:
+                print(f"[x] The file {encrypted} is not encrypted and doesn't have a key. ")
+
+        else:
+            if not action:
+                print("[x] Please provide the action using the -a or --action option. ")
+
+            print(f'[x] Invalid action: {action}. ')
     else:
-        if not action:
-            print("[x] Please provide the action using the -a or --action option. ")
-        
-        print(f'[x] Invalid action: {action}. ')
-
+        print(f"[x] The file {encrypted} does not exist. ")
 
 if __name__ == '__main__':
     main()  
