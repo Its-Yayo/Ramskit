@@ -26,7 +26,7 @@ CURRENT = "v1.2.1"
 class Ramskit:
     def __init__(self) -> None:
         """ Main constructor for Ramskit.
-        The constructor will check if there's a key assigned. If not, it will generate a new one."""
+        It will check if there's a key assigned. If not, it will generate a new one."""
         
         print(f"[x] Starting Ramskit {CURRENT}")
         print("[x] Reading key...")
