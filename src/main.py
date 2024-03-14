@@ -75,6 +75,7 @@ def main() -> None:
                 print("[x] Please provide the action using the -a or --action option. ")
 
             print(f'[x] Invalid action: {action}. ')
+
     else:
         print(f"[x] The file {encrypted} does not exist. ")
 
