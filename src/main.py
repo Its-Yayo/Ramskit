@@ -25,6 +25,7 @@ import sys
 import argparse
 
 
+# TODO: For v1.3.1 ramskit package CLI init arg -> rather than main.py, use ramskit
 # TODO: .deb package for v2.0.0 -> Also an apt package for Debian-based distros!
 def main() -> None:
     # For v1.2.1
@@ -36,8 +37,7 @@ def main() -> None:
     parser.add_argument('-p', '--path', dest="path", required=True,
                         help='Path to file(s) to encrypt/decrypt')
     args = parser.parse_args()
-
-    # TODO: For v1.3.1 ramskit package CLI init arg -> rather than main.py, use ramskit
+    
     ramskit = Ramskit()
     key = ramskit.load_key()
 
