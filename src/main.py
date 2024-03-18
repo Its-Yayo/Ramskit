@@ -37,7 +37,7 @@ def main() -> None:
                         help='Path to file(s) to encrypt/decrypt')
     args = parser.parse_args()
 
-    # TODO: Check ramskit package CLI init arg -> rather than main.py, use ramskit
+    # TODO: For v1.3.1 ramskit package CLI init arg -> rather than main.py, use ramskit
     ramskit = Ramskit()
     key = ramskit.load_key()
 
