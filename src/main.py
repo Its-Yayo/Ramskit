@@ -25,6 +25,7 @@ import sys
 import argparse
 
 
+# TODO: For v1.2.2 check logs for non-existent key
 # TODO: For v1.3.1 ramskit package CLI init arg -> rather than main.py, use ramskit
 # TODO: .deb package for v2.0.0 -> Also an apt package for Debian-based distros!
 def main() -> None:
