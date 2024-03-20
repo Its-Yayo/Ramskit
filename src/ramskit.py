@@ -27,7 +27,7 @@ CURRENT = "v1.2.1"
 class Ramskit:
     def __init__(self) -> None:
         """ Main constructor for Ramskit.
-        It will check if there's a key assigned. If not, it will generate a new one."""
+        It will check if there's a key assigned. If not, it will generate a new one. """
         
         print(f"[x] Starting Ramskit {CURRENT}")
         print("[x] Reading key...")
@@ -66,7 +66,7 @@ class Ramskit:
                            f"Use the '-a or --action decrypt' usage to decrypt this file!")
 
     def decrypt_file(self, items: collections.Iterable, key: bytes) -> None:
-        """Decrypter's logic. It will decrypt the data, as well as deleting the .txt file.  """
+        """ Decrypter's logic. It will decrypt the data, as well as deleting the .txt file. """
         
         fernet = Fernet(key)
 
