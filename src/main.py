@@ -47,7 +47,6 @@ def main() -> None:
     encrypted = args.path
 
     if os.path.isfile(encrypted):
-        # Yeaaaaaaa
         if action == 'encrypt':
             if not encrypted:
                 print("[x] Please provide the path to the file using the -p or --path option. ")
