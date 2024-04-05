@@ -20,7 +20,7 @@
 
 
 
-Ramskit is a single kit tool to encrypt and decrypt data. Ramskit will automate which file from a complete path the user wants to encrypt/decrypt. PRs and Issues are open for anyone that wants to contribute to my project. 
+Ramskit is a single kit tool to encrypt and decrypt data. Ramskit will automate which file from a complete path the user wants to encrypt/decrypt. PRs and Issues are open for anyone who wants to contribute to my project. 
 
 ## Getting Started
 
