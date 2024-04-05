@@ -20,11 +20,11 @@
 
 
 
-Ramskit is a single kit tool to encrypt and decrypt data. Ramskit will automate which file from a complete path the user wants to encrypt/decrypt. 
+Ramskit is a single kit tool to encrypt and decrypt data. Ramskit will automate which file from a complete path the user wants to encrypt/decrypt. PRs and Issues are open for anyone that wants to contribute to my project. 
 
 ## Getting Started
 
-For more info and downloads, see [wiki](https://its-yayo.github.io/ramskit). 
+For more info and downloads, see [wiki](https://its-yayo.github.io/ramskit).
 
 (For latest version v1.2.1): 
 
@@ -70,15 +70,15 @@ C:\> python -m pip install -r requirements.txt
 ```
 
 ## Local contributions
-You can test this project in your localhost by cloning it. 
+You can test this project in your localhost by creating a PR. You'll need to fork it and clone ur own branch. 
 ```
-$ git clone https://github.com/Its-Yayo/Ramskit.git
+$ git clone https://github.com/<your-github-username>/Ramskit.git
 $ cd Ramskit
 ```
 
 You can load in your localhost the last changes of Ramskit.
 ```
-$ git pull origin
+$ git pull origin <branch-name>
 ```
 
 ## Notes
