@@ -69,7 +69,7 @@ For Windows
 C:\> python -m pip install -r requirements.txt
 ```
 
-## Local contributions
+## Contributions
 You can test this project in your localhost by creating a PR. You'll need to fork it and clone ur own branch. 
 ```
 $ git clone https://github.com/<your-github-username>/Ramskit.git
