@@ -24,7 +24,7 @@ import os.path
 CURRENT = "v1.2.1"
 
 
-# TODOs: Check main.py lmaoooo
+# TODOs: Check main.py lmaooooooooo
 class Ramskit:
     def __init__(self) -> None:
         """ Main constructor for Ramskit.
