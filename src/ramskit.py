@@ -21,6 +21,7 @@ import collections.abc as collections
 from cryptography.fernet import Fernet
 import os.path
 
+
 CURRENT = "v1.2.1"
 
 
