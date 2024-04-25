@@ -83,6 +83,7 @@ if __name__ == '__main__':
     main()  
     print("\n[x] Ramskit done. Exiting...")
 
+    # I like this sys package, it closes ports :)
     sys.exit(0)
 
 
