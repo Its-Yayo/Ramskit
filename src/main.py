@@ -79,6 +79,7 @@ def main() -> None:
     else:
         print(f"[x] The file {encrypted} does not exist. ")
 
+
 if __name__ == '__main__':
     main()  
     print("\n[x] Ramskit done. Exiting...")
