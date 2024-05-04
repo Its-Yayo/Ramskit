@@ -43,6 +43,7 @@ class Ramskit:
             with open('key.key', "wb") as f:
                 self.key = Ramskit.generate_key()
 
+    
     def encrypt_file(self, items: collections.Iterable, key: bytes) -> None:
         """ Encrypter's logic. It checks the key assigned in order to overwrite the file.
         It will generate a .txt file for some additional instructions to decrypt the data. """
@@ -67,6 +68,7 @@ class Ramskit:
                 file.write(f"Hello, your file '{normalized_item}' has been encrypted. "
                            f"Use the '-a or --action decrypt' usage to decrypt this file!")
 
+    
     def decrypt_file(self, items: collections.Iterable, key: bytes) -> None:
         """ Decrypter's logic. It will decrypt the data, as well as deleting the .txt file. """
         
@@ -89,6 +91,7 @@ class Ramskit:
             if os.path.exists(new_path):
                 os.remove(new_path)
 
+    
     @staticmethod
     def generate_key() -> int:
         """ Method that will generate a 2-bit url-safe base64-encoded key for CLI Usages. """
@@ -98,6 +101,7 @@ class Ramskit:
         with open('key.key', 'wb') as file:
             return file.write(key)
 
+    
     @staticmethod
     def load_key() -> bytes:
         """ Method that will load the key in order to overwrite the init key file. """
