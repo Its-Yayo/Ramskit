@@ -45,6 +45,7 @@ def main() -> None:
     action = args.action.lower()
     encrypted = args.path
 
+    # Whole path needs to be checked in order to type action
     if os.path.isfile(encrypted):
         if action == 'encrypt':
             if not encrypted:
