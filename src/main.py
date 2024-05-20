@@ -80,6 +80,7 @@ def main() -> None:
         print(f"[x] The file {encrypted} does not exist. ")
 
 
+# I usually add this stuff to every main.py haha
 if __name__ == '__main__':
     main()  
     print("\n[x] Ramskit done. Exiting...")
